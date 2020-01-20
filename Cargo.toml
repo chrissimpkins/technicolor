@@ -1,0 +1,22 @@
+[package]
+name = "technicolor"
+description = "Colors for code"
+version = "0.1.0"
+authors = ["Chris Simpkins <chris@sourcefoundry.org>"]
+edition = "2018"
+homepage = "https://github.com/chrissimpkins/technicolor"
+documentation = "https://github.com/chrissimpkins/technicolor"
+repository = "https://github.com/chrissimpkins/technicolor"
+readme = "README.md"
+license = "Apache-2.0"
+keywords = ["cli", "commandline", "application", "highlight", "syntax", "sourcecode"]
+exclude = [
+    "/appveyor.yml",
+    "/.travis.yml"
+]
+
+[dependencies]
+syntect = "3.2"
+
+#[dev-dependencies]
+#regex = "1"
