@@ -15,8 +15,12 @@ exclude = [
     "/.travis.yml"
 ]
 
-[dependencies]
-syntect = "3.3"
+#[dependencies]
+
+[dependencies.syntect]
+version = "3.3.0"
+default-features = false
+features = ["parsing", "yaml-load", "dump-load", "dump-create"]
 
 [dev-dependencies]
 regex = "1"
