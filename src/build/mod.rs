@@ -13,3 +13,4 @@
 // limitations under the License.
 
 pub mod syntax;
+pub mod theme;
