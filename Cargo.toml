@@ -1,6 +1,6 @@
 [package]
 name = "technicolor"
-description = "Colors for code"
+description = "Color theme and source syntax library for syntax highlighting"
 version = "0.1.0"
 authors = ["Chris Simpkins <chris@sourcefoundry.org>"]
 edition = "2018"
@@ -16,7 +16,7 @@ exclude = [
 ]
 
 [dependencies]
-syntect = "3.2"
+syntect = "3.3"
 
-#[dev-dependencies]
-#regex = "1"
+[dev-dependencies]
+regex = "1"
