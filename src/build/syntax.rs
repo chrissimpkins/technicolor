@@ -20,24 +20,6 @@ use syntect::LoadingError;
 
 use crate::paths::BUILTIN_SYNTAXES_DIR;
 
-// prviate load_syntax_file function from syntect library
-// transition to public here
-pub fn load_syntax_file(
-    p: &Path,
-    lines_include_newline: bool,
-) -> Result<SyntaxDefinition, LoadingError> {
-    let mut f = File::open(p)?;
-    let mut s = String::new();
-    f.read_to_string(&mut s)?;
-
-    Ok(SyntaxDefinition::load_from_str(
-        &s,
-        lines_include_newline,
-        p.file_stem().and_then(|x| x.to_str()),
-    )
-    .map_err(|e| LoadingError::ParseSyntax(e, Some(format!("{}", p.display()))))?)
-}
-
 pub fn build_syntaxset_from_directory(dir: &str) -> Result<SyntaxSet, LoadingError> {
     let mut ssb = SyntaxSetBuilder::new();
     match ssb.add_from_folder(dir, true) {
@@ -65,6 +47,24 @@ pub fn build_syntaxset_by_technicolor_names(names: Vec<&str>) -> Result<SyntaxSe
         }
     }
     Ok(ssb.build())
+}
+
+// prviate load_syntax_file function from syntect library
+// transition to public here
+pub fn load_syntax_file(
+    p: &Path,
+    lines_include_newline: bool,
+) -> Result<SyntaxDefinition, LoadingError> {
+    let mut f = File::open(p)?;
+    let mut s = String::new();
+    f.read_to_string(&mut s)?;
+
+    Ok(SyntaxDefinition::load_from_str(
+        &s,
+        lines_include_newline,
+        p.file_stem().and_then(|x| x.to_str()),
+    )
+    .map_err(|e| LoadingError::ParseSyntax(e, Some(format!("{}", p.display()))))?)
 }
 
 #[cfg(test)]
