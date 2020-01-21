@@ -20,6 +20,12 @@ use syntect::LoadingError;
 
 use crate::paths::BUILTIN_SYNTAXES_DIR;
 
+// ======================================
+//
+// Syntax sets from text definition files
+//
+// ======================================
+
 pub fn build_syntaxset_from_directory(dir: &str) -> Result<SyntaxSet, LoadingError> {
     let mut ssb = SyntaxSetBuilder::new();
     match ssb.add_from_folder(dir, true) {
@@ -32,14 +38,25 @@ pub fn build_technicolor_syntaxset() -> Result<SyntaxSet, LoadingError> {
     build_syntaxset_from_directory(BUILTIN_SYNTAXES_DIR)
 }
 
-pub fn build_syntaxset_by_technicolor_names<'a, I>(names: I) -> Result<SyntaxSet, LoadingError>
-    where
-        I: IntoIterator<Item = &'a&'a str>,
+pub fn build_syntaxset_by_names<'a, I>(names: I) -> Result<SyntaxSet, LoadingError>
+where
+    I: IntoIterator<Item = &'a &'a str>,
+{
+    // builds from builtin syntaxes defined in the technicolor project
+    build_syntaxset_by_names_from_directory(names, BUILTIN_SYNTAXES_DIR)
+}
+
+pub fn build_syntaxset_by_names_from_directory<'a, I>(
+    names: I,
+    dir: &str,
+) -> Result<SyntaxSet, LoadingError>
+where
+    I: IntoIterator<Item = &'a &'a str>,
 {
     let mut ssb = SyntaxSetBuilder::new();
     for name in names.into_iter() {
         let mut filepath = PathBuf::new();
-        filepath.push(BUILTIN_SYNTAXES_DIR);
+        filepath.push(dir);
         filepath.push(name);
         filepath.set_extension("sublime-syntax");
         match load_syntax_file(filepath.as_path(), true) {
@@ -73,8 +90,8 @@ pub fn load_syntax_file(
 #[cfg(test)]
 mod tests {
     use crate::build::syntax;
-    use std::path::Path;
     use std::collections::HashMap;
+    use std::path::Path;
 
     #[test]
     fn test_load_syntax_file() {
@@ -99,9 +116,9 @@ mod tests {
     }
 
     #[test]
-    fn test_build_syntaxset_by_technicolor_names_with_vector() {
+    fn test_build_syntaxset_by_names_with_vector() {
         let test_syntax_names = vec![&"INI", &"Swift"];
-        let ss = syntax::build_syntaxset_by_technicolor_names(test_syntax_names).unwrap();
+        let ss = syntax::build_syntaxset_by_names(test_syntax_names).unwrap();
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
         assert!(&ss.find_syntax_by_extension("kt").is_none());
@@ -109,16 +126,16 @@ mod tests {
     }
 
     #[test]
-    fn test_build_syntaxset_by_technicolor_names_vector_fail_bad_syntax_name() {
+    fn test_build_syntaxset_by_names_vector_fail_bad_syntax_name() {
         let test_syntax_names = vec![&"Bogus"];
-        let ss = syntax::build_syntaxset_by_technicolor_names(test_syntax_names);
+        let ss = syntax::build_syntaxset_by_names(test_syntax_names);
         assert!(ss.is_err());
     }
 
     #[test]
-    fn test_build_syntaxset_by_technicolor_names_with_array() {
+    fn test_build_syntaxset_by_names_with_array() {
         let test_syntax_names = ["INI", "Swift"];
-        let ss = syntax::build_syntaxset_by_technicolor_names(&test_syntax_names).unwrap();
+        let ss = syntax::build_syntaxset_by_names(&test_syntax_names).unwrap();
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
         assert!(&ss.find_syntax_by_extension("kt").is_none());
@@ -126,18 +143,18 @@ mod tests {
     }
 
     #[test]
-    fn test_build_syntaxset_by_technicolor_names_array_fail_bad_syntax_name() {
+    fn test_build_syntaxset_by_names_array_fail_bad_syntax_name() {
         let test_syntax_names = ["Bogus"];
-        let ss = syntax::build_syntaxset_by_technicolor_names(&test_syntax_names);
+        let ss = syntax::build_syntaxset_by_names(&test_syntax_names);
         assert!(ss.is_err());
     }
 
     #[test]
-    fn test_build_syntaxset_by_technicolor_names_with_hashmap() {
+    fn test_build_syntaxset_by_names_with_hashmap() {
         let mut test_syntax_names = HashMap::new();
         test_syntax_names.insert("INI", 1);
         test_syntax_names.insert("Swift", 2);
-        let ss = syntax::build_syntaxset_by_technicolor_names(test_syntax_names.keys()).unwrap();
+        let ss = syntax::build_syntaxset_by_names(test_syntax_names.keys()).unwrap();
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
         assert!(&ss.find_syntax_by_extension("kt").is_none());
@@ -145,10 +162,10 @@ mod tests {
     }
 
     #[test]
-    fn test_build_syntaxset_by_technicolor_names_hashmap_fail_bad_syntax_name() {
+    fn test_build_syntaxset_by_names_hashmap_fail_bad_syntax_name() {
         let mut test_syntax_names = HashMap::new();
         test_syntax_names.insert("Bogus", 1);
-        let ss = syntax::build_syntaxset_by_technicolor_names(test_syntax_names.keys());
+        let ss = syntax::build_syntaxset_by_names(test_syntax_names.keys());
         assert!(ss.is_err());
     }
 }
