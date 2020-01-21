@@ -90,6 +90,7 @@ pub fn load_syntax_file(
 #[cfg(test)]
 mod tests {
     use crate::build::syntax;
+    use crate::paths::BUILTIN_SYNTAXES_DIR;
     use std::collections::HashMap;
     use std::path::Path;
 
@@ -105,6 +106,20 @@ mod tests {
         let filepath = Path::new("assets/syntaxes/Bogus.sublime-syntax");
         let sd = syntax::load_syntax_file(filepath, true);
         assert!(sd.is_err());
+    }
+
+    #[test]
+    fn test_build_syntaxset_from_directory() {
+        let ss = syntax::build_syntaxset_from_directory(BUILTIN_SYNTAXES_DIR).unwrap();
+        assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
+        assert_eq!(&ss.find_syntax_by_extension("kt").unwrap().name, "Kotlin");
+        assert!(&ss.find_syntax_by_extension("bogus").is_none());
+    }
+
+    #[test]
+    fn test_build_syntaxset_from_directory_fail_bad_dirpath() {
+        let ss = syntax::build_syntaxset_from_directory("bogusdir");
+        assert!(ss.is_err());
     }
 
     #[test]
