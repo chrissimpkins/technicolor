@@ -36,7 +36,6 @@ mod tests {
         assert_eq!(testpath.is_relative(), true);
         assert_eq!(testpath.is_file(), false);
         assert_eq!(testpath.is_dir(), true);
-        assert!(testpath.exists(), true);
     }
 
     #[test]
@@ -46,6 +45,5 @@ mod tests {
         assert_eq!(testpath.is_relative(), true);
         assert_eq!(testpath.is_file(), false);
         assert_eq!(testpath.is_dir(), true);
-        assert!(testpath.exists());
     }
 }
