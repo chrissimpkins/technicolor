@@ -52,7 +52,7 @@ pub fn build_technicolor_syntaxset() -> Result<SyntaxSet, LoadingError> {
 
 pub fn build_syntaxset_by_technicolor_names(names: Vec<&str>) -> Result<SyntaxSet, LoadingError> {
     let mut ssb = SyntaxSetBuilder::new();
-    for name in names.iter() {
+    for name in names {
         let mut filepath = PathBuf::new();
         filepath.push(BUILTIN_SYNTAXES_DIR);
         filepath.push(name);
@@ -69,8 +69,8 @@ pub fn build_syntaxset_by_technicolor_names(names: Vec<&str>) -> Result<SyntaxSe
 
 #[cfg(test)]
 mod tests {
-    use std::path::Path;
     use crate::build::syntax;
+    use std::path::Path;
 
     #[test]
     fn test_load_syntax_file() {
