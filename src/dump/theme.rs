@@ -24,9 +24,9 @@ pub fn dump_themeset_to_binary(ts: &ThemeSet, filepath: &str) -> TCResult<()> {
     }
 }
 
-pub fn dump_themeset_to_binary_by_names<'a, I>(names: I, filepath: &str) -> TCResult<()>
+pub fn dump_themeset_to_binary_by_names<'a, T>(names: T, filepath: &str) -> TCResult<()>
 where
-    I: IntoIterator<Item = &'a &'a str>,
+    T: IntoIterator<Item = &'a &'a str>,
 {
     match build_themeset_by_names(names) {
         Ok(n) => {

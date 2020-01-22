@@ -17,6 +17,8 @@ use syntect::parsing::SyntaxSet;
 use crate::build::syntax::build_syntaxset_by_names;
 use crate::errors::TCResult;
 
+// TODO: add no newline unit tests
+
 pub fn dump_syntaxset_to_binary(ss: &SyntaxSet, filepath: &str) -> TCResult<()> {
     match dump_to_file(ss, filepath) {
         Ok(_n) => Ok(()),
@@ -24,11 +26,15 @@ pub fn dump_syntaxset_to_binary(ss: &SyntaxSet, filepath: &str) -> TCResult<()> 
     }
 }
 
-pub fn dump_syntaxset_to_binary_by_names<'a, I>(names: I, filepath: &str) -> TCResult<()>
+pub fn dump_syntaxset_to_binary_by_names<'a, T>(
+    names: T,
+    filepath: &str,
+    lines_include_newline: bool,
+) -> TCResult<()>
 where
-    I: IntoIterator<Item = &'a &'a str>,
+    T: IntoIterator<Item = &'a &'a str>,
 {
-    match build_syntaxset_by_names(names) {
+    match build_syntaxset_by_names(names, lines_include_newline) {
         Ok(n) => {
             dump_syntaxset_to_binary(&n, filepath)?;
             Ok(())
@@ -53,7 +59,7 @@ mod tests {
     fn test_dump_syntaxset_to_binary() {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("syntaxes.bin");
-        let ss = build::syntax::build_technicolor_syntaxset().unwrap();
+        let ss = build::syntax::build_technicolor_syntaxset(true).unwrap();
         dump::syntax::dump_syntaxset_to_binary(&ss, file_path.to_str().unwrap()).unwrap();
         let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
@@ -67,7 +73,7 @@ mod tests {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("syntaxes.bin");
         let names = vec![&"INI", &"Kotlin"];
-        dump::syntax::dump_syntaxset_to_binary_by_names(names, file_path.to_str().unwrap())
+        dump::syntax::dump_syntaxset_to_binary_by_names(names, file_path.to_str().unwrap(), true)
             .unwrap();
         let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
@@ -86,7 +92,7 @@ mod tests {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("syntaxes.bin");
         let names = ["INI", "Kotlin"];
-        dump::syntax::dump_syntaxset_to_binary_by_names(&names, file_path.to_str().unwrap())
+        dump::syntax::dump_syntaxset_to_binary_by_names(&names, file_path.to_str().unwrap(), true)
             .unwrap();
         let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
@@ -109,8 +115,12 @@ mod tests {
 
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("syntaxes.bin");
-        dump::syntax::dump_syntaxset_to_binary_by_names(names.keys(), file_path.to_str().unwrap())
-            .unwrap();
+        dump::syntax::dump_syntaxset_to_binary_by_names(
+            names.keys(),
+            file_path.to_str().unwrap(),
+            true,
+        )
+        .unwrap();
         let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
         assert_eq!(&ss_in.find_syntax_by_extension("ini").unwrap().name, "INI");
@@ -129,8 +139,11 @@ mod tests {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("syntaxes.bin");
         let names = vec![&"Bogus", &"Kotlin"];
-        let res =
-            dump::syntax::dump_syntaxset_to_binary_by_names(names, file_path.to_str().unwrap());
+        let res = dump::syntax::dump_syntaxset_to_binary_by_names(
+            names,
+            file_path.to_str().unwrap(),
+            true,
+        );
         assert!(res.is_err());
         // cleanup
         tmpdir.close().unwrap();

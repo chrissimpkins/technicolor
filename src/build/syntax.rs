@@ -27,29 +27,38 @@ use crate::paths::BUILTIN_SYNTAXES_DIR;
 //
 // ======================================
 
-pub fn build_syntaxset_from_directory(dir: &str) -> TCResult<SyntaxSet> {
+// TODO: add tests for no newline support
+
+pub fn build_syntaxset_from_directory(
+    dir: &str,
+    lines_include_newline: bool,
+) -> TCResult<SyntaxSet> {
     let mut ssb = SyntaxSetBuilder::new();
-    match ssb.add_from_folder(dir, true) {
+    match ssb.add_from_folder(dir, lines_include_newline) {
         Ok(_) => Ok(ssb.build()),
         Err(err) => Err(TCError::from(err)),
     }
 }
 
-pub fn build_technicolor_syntaxset() -> TCResult<SyntaxSet> {
-    build_syntaxset_from_directory(BUILTIN_SYNTAXES_DIR)
+pub fn build_technicolor_syntaxset(lines_include_newline: bool) -> TCResult<SyntaxSet> {
+    build_syntaxset_from_directory(BUILTIN_SYNTAXES_DIR, lines_include_newline)
 }
 
-pub fn build_syntaxset_by_names<'a, I>(names: I) -> TCResult<SyntaxSet>
+pub fn build_syntaxset_by_names<'a, T>(names: T, lines_include_newline: bool) -> TCResult<SyntaxSet>
 where
-    I: IntoIterator<Item = &'a &'a str>,
+    T: IntoIterator<Item = &'a &'a str>,
 {
     // builds from builtin syntaxes defined in the technicolor project
-    build_syntaxset_by_names_from_directory(names, BUILTIN_SYNTAXES_DIR)
+    build_syntaxset_by_names_from_directory(names, BUILTIN_SYNTAXES_DIR, lines_include_newline)
 }
 
-pub fn build_syntaxset_by_names_from_directory<'a, I>(names: I, dir: &str) -> TCResult<SyntaxSet>
+pub fn build_syntaxset_by_names_from_directory<'a, T>(
+    names: T,
+    dir: &str,
+    lines_include_newline: bool,
+) -> TCResult<SyntaxSet>
 where
-    I: IntoIterator<Item = &'a &'a str>,
+    T: IntoIterator<Item = &'a &'a str>,
 {
     let mut ssb = SyntaxSetBuilder::new();
     for name in names.into_iter() {
@@ -57,7 +66,7 @@ where
         filepath.push(dir);
         filepath.push(name);
         filepath.set_extension("sublime-syntax");
-        match load_syntax_file(filepath.as_path(), true) {
+        match load_syntax_file(filepath.as_path(), lines_include_newline) {
             Ok(syntax) => {
                 ssb.add(syntax);
             }
@@ -105,7 +114,7 @@ mod tests {
 
     #[test]
     fn test_build_syntaxset_from_directory() {
-        let ss = syntax::build_syntaxset_from_directory(BUILTIN_SYNTAXES_DIR).unwrap();
+        let ss = syntax::build_syntaxset_from_directory(BUILTIN_SYNTAXES_DIR, true).unwrap();
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("kt").unwrap().name, "Kotlin");
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
@@ -113,13 +122,13 @@ mod tests {
 
     #[test]
     fn test_build_syntaxset_from_directory_fail_bad_dirpath() {
-        let ss = syntax::build_syntaxset_from_directory("bogusdir");
+        let ss = syntax::build_syntaxset_from_directory("bogusdir", true);
         assert!(ss.is_err());
     }
 
     #[test]
     fn test_build_technicolor_syntaxset() {
-        let ss = syntax::build_technicolor_syntaxset().unwrap();
+        let ss = syntax::build_technicolor_syntaxset(true).unwrap();
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("kt").unwrap().name, "Kotlin");
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
@@ -128,7 +137,7 @@ mod tests {
     #[test]
     fn test_build_syntaxset_by_names_with_vector() {
         let test_syntax_names = vec![&"INI", &"Swift"];
-        let ss = syntax::build_syntaxset_by_names(test_syntax_names).unwrap();
+        let ss = syntax::build_syntaxset_by_names(test_syntax_names, true).unwrap();
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
         assert!(&ss.find_syntax_by_extension("kt").is_none());
@@ -138,14 +147,14 @@ mod tests {
     #[test]
     fn test_build_syntaxset_by_names_vector_fail_bad_syntax_name() {
         let test_syntax_names = vec![&"Bogus"];
-        let ss = syntax::build_syntaxset_by_names(test_syntax_names);
+        let ss = syntax::build_syntaxset_by_names(test_syntax_names, true);
         assert!(ss.is_err());
     }
 
     #[test]
     fn test_build_syntaxset_by_names_with_array() {
         let test_syntax_names = ["INI", "Swift"];
-        let ss = syntax::build_syntaxset_by_names(&test_syntax_names).unwrap();
+        let ss = syntax::build_syntaxset_by_names(&test_syntax_names, true).unwrap();
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
         assert!(&ss.find_syntax_by_extension("kt").is_none());
@@ -155,7 +164,7 @@ mod tests {
     #[test]
     fn test_build_syntaxset_by_names_array_fail_bad_syntax_name() {
         let test_syntax_names = ["Bogus"];
-        let ss = syntax::build_syntaxset_by_names(&test_syntax_names);
+        let ss = syntax::build_syntaxset_by_names(&test_syntax_names, true);
         assert!(ss.is_err());
     }
 
@@ -164,7 +173,7 @@ mod tests {
         let mut test_syntax_names = HashMap::new();
         test_syntax_names.insert("INI", 1);
         test_syntax_names.insert("Swift", 2);
-        let ss = syntax::build_syntaxset_by_names(test_syntax_names.keys()).unwrap();
+        let ss = syntax::build_syntaxset_by_names(test_syntax_names.keys(), true).unwrap();
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
         assert!(&ss.find_syntax_by_extension("kt").is_none());
@@ -175,7 +184,7 @@ mod tests {
     fn test_build_syntaxset_by_names_hashmap_fail_bad_syntax_name() {
         let mut test_syntax_names = HashMap::new();
         test_syntax_names.insert("Bogus", 1);
-        let ss = syntax::build_syntaxset_by_names(test_syntax_names.keys());
+        let ss = syntax::build_syntaxset_by_names(test_syntax_names.keys(), true);
         assert!(ss.is_err());
     }
 }
