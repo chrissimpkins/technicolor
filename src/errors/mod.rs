@@ -11,22 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+use std::boxed::Box;
 
-pub mod build;
-pub mod dump;
-pub mod errors;
-pub mod paths;
-
-pub const VERSION: &str = env!("CARGO_PKG_VERSION");
-
-#[cfg(test)]
-mod tests {
-    use crate::VERSION;
-    use regex::Regex;
-
-    #[test]
-    fn test_library_version() {
-        let re = Regex::new(r"^\d{1,3}\.\d{1,3}\.\d{1,3}$").unwrap();
-        assert!(re.is_match(VERSION));
-    }
-}
+pub(crate) type TCError = Box<dyn std::error::Error>;
+pub(crate) type TCResult<T> = Result<T, TCError>;
