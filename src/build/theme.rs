@@ -129,4 +129,11 @@ mod tests {
         assert!(all_themes.contains(&"Ayu-Light")); // expected
         assert!(!all_themes.contains(&"Material")); // should not be present
     }
+
+    #[test]
+    fn test_build_themeset_by_names_with_vector_fail_bad_name() {
+        let test_theme_names = vec![&"Bogus"];
+        let ts = theme::build_themeset_by_names(test_theme_names);
+        assert!(ts.is_err());
+    }
 }
