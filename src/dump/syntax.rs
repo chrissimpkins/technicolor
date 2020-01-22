@@ -128,4 +128,15 @@ mod tests {
         // cleanup
         tmpdir.close().unwrap();
     }
+
+    #[test]
+    fn test_dump_syntaxset_to_binary_with_names_vector_fail_bad_name() {
+        let tmpdir = tempdir().unwrap();
+        let file_path = tmpdir.path().join("syntaxes.bin");
+        let names = vec![&"Bogus", &"Kotlin"];
+        let res = dump::syntax::dump_syntaxset_to_binary_by_names(names, file_path.to_str().unwrap());
+        assert!(res.is_err());
+        // cleanup
+        tmpdir.close().unwrap();
+    }
 }
