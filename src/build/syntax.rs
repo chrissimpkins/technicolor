@@ -27,8 +27,6 @@ use crate::paths::BUILTIN_SYNTAXES_DIR;
 //
 // ======================================
 
-// TODO: add tests for no newline support
-
 pub fn build_syntaxset_from_directory(
     dir: &str,
     lines_include_newline: bool,
@@ -93,15 +91,19 @@ pub fn load_syntax_file(p: &Path, lines_include_newline: bool) -> TCResult<Synta
 
 #[cfg(test)]
 mod tests {
-    use crate::build::syntax;
-    use crate::paths::BUILTIN_SYNTAXES_DIR;
     use std::collections::HashMap;
     use std::path::Path;
+
+    use crate::build::syntax;
+    use crate::paths::BUILTIN_SYNTAXES_DIR;
 
     #[test]
     fn test_load_syntax_file() {
         let filepath = Path::new("assets/syntaxes/INI.sublime-syntax");
         let sd = syntax::load_syntax_file(filepath, true).unwrap();
+        assert_eq!(sd.name, "INI");
+        //repeat for newline = false
+        let sd = syntax::load_syntax_file(filepath, false).unwrap();
         assert_eq!(sd.name, "INI");
     }
 
@@ -109,6 +111,9 @@ mod tests {
     fn test_load_syntax_file_fail_badpath() {
         let filepath = Path::new("assets/syntaxes/Bogus.sublime-syntax");
         let sd = syntax::load_syntax_file(filepath, true);
+        assert!(sd.is_err());
+        //repeat for newline = false
+        let sd = syntax::load_syntax_file(filepath, false);
         assert!(sd.is_err());
     }
 
@@ -118,17 +123,30 @@ mod tests {
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("kt").unwrap().name, "Kotlin");
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
+        // repeat for newline = false
+        let ss = syntax::build_syntaxset_from_directory(BUILTIN_SYNTAXES_DIR, false).unwrap();
+        assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
+        assert_eq!(&ss.find_syntax_by_extension("kt").unwrap().name, "Kotlin");
+        assert!(&ss.find_syntax_by_extension("bogus").is_none());
     }
 
     #[test]
     fn test_build_syntaxset_from_directory_fail_bad_dirpath() {
         let ss = syntax::build_syntaxset_from_directory("bogusdir", true);
         assert!(ss.is_err());
+        // repeat for newline = false
+        let ss = syntax::build_syntaxset_from_directory("bogusdir", false);
+        assert!(ss.is_err());
     }
 
     #[test]
     fn test_build_technicolor_syntaxset() {
         let ss = syntax::build_technicolor_syntaxset(true).unwrap();
+        assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
+        assert_eq!(&ss.find_syntax_by_extension("kt").unwrap().name, "Kotlin");
+        assert!(&ss.find_syntax_by_extension("bogus").is_none());
+        // repeat for newline = false
+        let ss = syntax::build_technicolor_syntaxset(false).unwrap();
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("kt").unwrap().name, "Kotlin");
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
@@ -142,12 +160,23 @@ mod tests {
         assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
         assert!(&ss.find_syntax_by_extension("kt").is_none());
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
+        // repeat for newline = false
+        let test_syntax_names = vec![&"INI", &"Swift"];
+        let ss = syntax::build_syntaxset_by_names(test_syntax_names, false).unwrap();
+        assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
+        assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
+        assert!(&ss.find_syntax_by_extension("kt").is_none());
+        assert!(&ss.find_syntax_by_extension("bogus").is_none());
     }
 
     #[test]
     fn test_build_syntaxset_by_names_vector_fail_bad_syntax_name() {
         let test_syntax_names = vec![&"Bogus"];
         let ss = syntax::build_syntaxset_by_names(test_syntax_names, true);
+        assert!(ss.is_err());
+        // repeat for newline = false
+        let test_syntax_names = vec![&"Bogus"];
+        let ss = syntax::build_syntaxset_by_names(test_syntax_names, false);
         assert!(ss.is_err());
     }
 
@@ -159,12 +188,21 @@ mod tests {
         assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
         assert!(&ss.find_syntax_by_extension("kt").is_none());
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
+        // repeat for newline = false
+        let ss = syntax::build_syntaxset_by_names(&test_syntax_names, false).unwrap();
+        assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
+        assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
+        assert!(&ss.find_syntax_by_extension("kt").is_none());
+        assert!(&ss.find_syntax_by_extension("bogus").is_none());
     }
 
     #[test]
     fn test_build_syntaxset_by_names_array_fail_bad_syntax_name() {
         let test_syntax_names = ["Bogus"];
         let ss = syntax::build_syntaxset_by_names(&test_syntax_names, true);
+        assert!(ss.is_err());
+        // repeat for newline = false
+        let ss = syntax::build_syntaxset_by_names(&test_syntax_names, false);
         assert!(ss.is_err());
     }
 
@@ -178,6 +216,12 @@ mod tests {
         assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
         assert!(&ss.find_syntax_by_extension("kt").is_none());
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
+        // repeat for newline = false
+        let ss = syntax::build_syntaxset_by_names(test_syntax_names.keys(), false).unwrap();
+        assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
+        assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
+        assert!(&ss.find_syntax_by_extension("kt").is_none());
+        assert!(&ss.find_syntax_by_extension("bogus").is_none());
     }
 
     #[test]
@@ -185,6 +229,9 @@ mod tests {
         let mut test_syntax_names = HashMap::new();
         test_syntax_names.insert("Bogus", 1);
         let ss = syntax::build_syntaxset_by_names(test_syntax_names.keys(), true);
+        assert!(ss.is_err());
+        // repeat for newline = false
+        let ss = syntax::build_syntaxset_by_names(test_syntax_names.keys(), false);
         assert!(ss.is_err());
     }
 }
