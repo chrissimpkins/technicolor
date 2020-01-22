@@ -134,7 +134,8 @@ mod tests {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("syntaxes.bin");
         let names = vec![&"Bogus", &"Kotlin"];
-        let res = dump::syntax::dump_syntaxset_to_binary_by_names(names, file_path.to_str().unwrap());
+        let res =
+            dump::syntax::dump_syntaxset_to_binary_by_names(names, file_path.to_str().unwrap());
         assert!(res.is_err());
         // cleanup
         tmpdir.close().unwrap();

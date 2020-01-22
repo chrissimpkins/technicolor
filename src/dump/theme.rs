@@ -30,8 +30,8 @@ pub fn dump_themeset_to_binary_by_names<'a, I>(
     names: I,
     filepath: &str,
 ) -> Result<(), Box<dyn Error>>
-    where
-        I: IntoIterator<Item = &'a &'a str>,
+where
+    I: IntoIterator<Item = &'a &'a str>,
 {
     match build_themeset_by_names(names) {
         Ok(n) => {
@@ -111,7 +111,8 @@ mod tests {
         let mut names = HashMap::new();
         names.insert("Dracula", 1);
         names.insert("Ayu-Light", 2);
-        dump::theme::dump_themeset_to_binary_by_names(names.keys(), file_path.to_str().unwrap()).unwrap();
+        dump::theme::dump_themeset_to_binary_by_names(names.keys(), file_path.to_str().unwrap())
+            .unwrap();
         let ts_in: ThemeSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
         let all_themes: Vec<&str> = ts_in.themes.keys().map(|x| &**x).collect();
