@@ -11,25 +11,20 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-use std::boxed::Box;
-use std::error::Error;
-
 use syntect::dumps::dump_to_file;
 use syntect::parsing::SyntaxSet;
 
 use crate::build::syntax::build_syntaxset_by_names;
+use crate::errors::TCResult;
 
-pub fn dump_syntaxset_to_binary(ss: &SyntaxSet, filepath: &str) -> Result<(), Box<dyn Error>> {
+pub fn dump_syntaxset_to_binary(ss: &SyntaxSet, filepath: &str) -> TCResult<()> {
     match dump_to_file(ss, filepath) {
         Ok(_n) => Ok(()),
         Err(err) => Err(err),
     }
 }
 
-pub fn dump_syntaxset_to_binary_by_names<'a, I>(
-    names: I,
-    filepath: &str,
-) -> Result<(), Box<dyn Error>>
+pub fn dump_syntaxset_to_binary_by_names<'a, I>(names: I, filepath: &str) -> TCResult<()>
 where
     I: IntoIterator<Item = &'a &'a str>,
 {
@@ -38,7 +33,7 @@ where
             dump_syntaxset_to_binary(&n, filepath)?;
             Ok(())
         }
-        Err(err) => Err(Box::new(err)),
+        Err(err) => Err(err),
     }
 }
 

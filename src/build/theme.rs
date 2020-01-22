@@ -14,26 +14,25 @@
 use std::path::PathBuf;
 
 use syntect::highlighting::ThemeSet;
-use syntect::LoadingError;
 
+use crate::errors::TCResult;
 use crate::paths::BUILTIN_THEMES_DIR;
-
 // ======================================
 //
 // Theme sets from text definition files
 //
 // ======================================
-pub fn build_themeset_from_directory(dir: &str) -> Result<ThemeSet, LoadingError> {
+pub fn build_themeset_from_directory(dir: &str) -> TCResult<ThemeSet> {
     let mut ts = ThemeSet::new();
     ts.add_from_folder(dir)?;
     Ok(ts)
 }
 
-pub fn build_technicolor_themeset() -> Result<ThemeSet, LoadingError> {
+pub fn build_technicolor_themeset() -> TCResult<ThemeSet> {
     build_themeset_from_directory(BUILTIN_THEMES_DIR)
 }
 
-pub fn build_themeset_by_names<'a, I>(names: I) -> Result<ThemeSet, LoadingError>
+pub fn build_themeset_by_names<'a, I>(names: I) -> TCResult<ThemeSet>
 where
     I: IntoIterator<Item = &'a &'a str>,
 {
@@ -41,10 +40,7 @@ where
     build_themeset_by_names_from_directory(names, BUILTIN_THEMES_DIR)
 }
 
-pub fn build_themeset_by_names_from_directory<'a, I>(
-    names: I,
-    dir: &str,
-) -> Result<ThemeSet, LoadingError>
+pub fn build_themeset_by_names_from_directory<'a, I>(names: I, dir: &str) -> TCResult<ThemeSet>
 where
     I: IntoIterator<Item = &'a &'a str>,
 {

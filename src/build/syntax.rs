@@ -18,6 +18,7 @@ use std::path::{Path, PathBuf};
 use syntect::parsing::{SyntaxDefinition, SyntaxSet, SyntaxSetBuilder};
 use syntect::LoadingError;
 
+use crate::errors::{TCError, TCResult};
 use crate::paths::BUILTIN_SYNTAXES_DIR;
 
 // ======================================
@@ -26,19 +27,19 @@ use crate::paths::BUILTIN_SYNTAXES_DIR;
 //
 // ======================================
 
-pub fn build_syntaxset_from_directory(dir: &str) -> Result<SyntaxSet, LoadingError> {
+pub fn build_syntaxset_from_directory(dir: &str) -> TCResult<SyntaxSet> {
     let mut ssb = SyntaxSetBuilder::new();
     match ssb.add_from_folder(dir, true) {
         Ok(_) => Ok(ssb.build()),
-        Err(err) => Err(err),
+        Err(err) => Err(TCError::from(err)),
     }
 }
 
-pub fn build_technicolor_syntaxset() -> Result<SyntaxSet, LoadingError> {
+pub fn build_technicolor_syntaxset() -> TCResult<SyntaxSet> {
     build_syntaxset_from_directory(BUILTIN_SYNTAXES_DIR)
 }
 
-pub fn build_syntaxset_by_names<'a, I>(names: I) -> Result<SyntaxSet, LoadingError>
+pub fn build_syntaxset_by_names<'a, I>(names: I) -> TCResult<SyntaxSet>
 where
     I: IntoIterator<Item = &'a &'a str>,
 {
@@ -46,10 +47,7 @@ where
     build_syntaxset_by_names_from_directory(names, BUILTIN_SYNTAXES_DIR)
 }
 
-pub fn build_syntaxset_by_names_from_directory<'a, I>(
-    names: I,
-    dir: &str,
-) -> Result<SyntaxSet, LoadingError>
+pub fn build_syntaxset_by_names_from_directory<'a, I>(names: I, dir: &str) -> TCResult<SyntaxSet>
 where
     I: IntoIterator<Item = &'a &'a str>,
 {
@@ -71,10 +69,7 @@ where
 
 // prviate load_syntax_file function from syntect library
 // transition to public here
-pub fn load_syntax_file(
-    p: &Path,
-    lines_include_newline: bool,
-) -> Result<SyntaxDefinition, LoadingError> {
+pub fn load_syntax_file(p: &Path, lines_include_newline: bool) -> TCResult<SyntaxDefinition> {
     let mut f = File::open(p)?;
     let mut s = String::new();
     f.read_to_string(&mut s)?;
