@@ -55,7 +55,7 @@ where
         filepath.push(name);
         filepath.set_extension("tmTheme");
         let theme = ThemeSet::get_theme(filepath)?;
-        ts.themes.insert(name.to_string(), theme);
+        ts.themes.insert((*name).to_string(), theme);
     }
     Ok(ts)
 }
