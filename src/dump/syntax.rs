@@ -46,6 +46,7 @@ where
 #[cfg(test)]
 mod tests {
     use std::collections::HashMap;
+    use std::fs;
 
     use tempfile::tempdir;
 
@@ -60,7 +61,17 @@ mod tests {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("syntaxes.bin");
         let ss = build::syntax::build_technicolor_syntaxset(true).unwrap();
-        dump::syntax::dump_syntaxset_to_binary(&ss, file_path.to_str().unwrap()).unwrap();
+        dump::syntax::dump_syntaxset_to_binary(&ss, &file_path.to_str().unwrap()).unwrap();
+        let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
+        assert!(file_path.is_file());
+        assert_eq!(&ss_in.find_syntax_by_extension("ini").unwrap().name, "INI");
+
+        // clean up file
+        fs::remove_file(&file_path).unwrap();
+
+        // run again newline parameter = false
+        let ss = build::syntax::build_technicolor_syntaxset(false).unwrap();
+        dump::syntax::dump_syntaxset_to_binary(&ss, &file_path.to_str().unwrap()).unwrap();
         let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
         assert_eq!(&ss_in.find_syntax_by_extension("ini").unwrap().name, "INI");
@@ -73,7 +84,7 @@ mod tests {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("syntaxes.bin");
         let names = vec![&"INI", &"Kotlin"];
-        dump::syntax::dump_syntaxset_to_binary_by_names(names, file_path.to_str().unwrap(), true)
+        dump::syntax::dump_syntaxset_to_binary_by_names(names, &file_path.to_str().unwrap(), true)
             .unwrap();
         let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
@@ -83,6 +94,23 @@ mod tests {
             "Kotlin"
         );
         assert!(&ss_in.find_syntax_by_extension("swift").is_none());
+
+        // clean up file
+        fs::remove_file(&file_path).unwrap();
+
+        // run again with newline parameter = false
+        let names = vec![&"INI", &"Kotlin"];
+        dump::syntax::dump_syntaxset_to_binary_by_names(names, &file_path.to_str().unwrap(), false)
+            .unwrap();
+        let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
+        assert!(file_path.is_file());
+        assert_eq!(&ss_in.find_syntax_by_extension("ini").unwrap().name, "INI");
+        assert_eq!(
+            &ss_in.find_syntax_by_extension("kt").unwrap().name,
+            "Kotlin"
+        );
+        assert!(&ss_in.find_syntax_by_extension("swift").is_none());
+
         // cleanup
         tmpdir.close().unwrap();
     }
@@ -92,7 +120,7 @@ mod tests {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("syntaxes.bin");
         let names = ["INI", "Kotlin"];
-        dump::syntax::dump_syntaxset_to_binary_by_names(&names, file_path.to_str().unwrap(), true)
+        dump::syntax::dump_syntaxset_to_binary_by_names(&names, &file_path.to_str().unwrap(), true)
             .unwrap();
         let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
@@ -103,6 +131,27 @@ mod tests {
         );
         assert!(&ss_in.find_syntax_by_extension("swift").is_none());
         assert!(&ss_in.find_syntax_by_extension("ts").is_none());
+
+        // clean up file
+        fs::remove_file(&file_path).unwrap();
+
+        // run again with newline parameter = false
+        dump::syntax::dump_syntaxset_to_binary_by_names(
+            &names,
+            &file_path.to_str().unwrap(),
+            false,
+        )
+        .unwrap();
+        let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
+        assert!(file_path.is_file());
+        assert_eq!(&ss_in.find_syntax_by_extension("ini").unwrap().name, "INI");
+        assert_eq!(
+            &ss_in.find_syntax_by_extension("kt").unwrap().name,
+            "Kotlin"
+        );
+        assert!(&ss_in.find_syntax_by_extension("swift").is_none());
+        assert!(&ss_in.find_syntax_by_extension("ts").is_none());
+
         // cleanup
         tmpdir.close().unwrap();
     }
@@ -130,21 +179,53 @@ mod tests {
         );
         assert!(&ss_in.find_syntax_by_extension("swift").is_none());
         assert!(&ss_in.find_syntax_by_extension("ts").is_none());
+
+        // clean up file
+        fs::remove_file(&file_path).unwrap();
+
+        // run again with newline parameter = false
+        dump::syntax::dump_syntaxset_to_binary_by_names(
+            names.keys(),
+            file_path.to_str().unwrap(),
+            false,
+        )
+        .unwrap();
+        let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
+        assert!(file_path.is_file());
+        assert_eq!(&ss_in.find_syntax_by_extension("ini").unwrap().name, "INI");
+        assert_eq!(
+            &ss_in.find_syntax_by_extension("kt").unwrap().name,
+            "Kotlin"
+        );
+        assert!(&ss_in.find_syntax_by_extension("swift").is_none());
+        assert!(&ss_in.find_syntax_by_extension("ts").is_none());
+
         // cleanup
         tmpdir.close().unwrap();
     }
 
     #[test]
-    fn test_dump_syntaxset_to_binary_with_names_vector_fail_bad_name() {
+    fn test_dump_syntaxset_to_binary_with_names_array_fail_bad_name() {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("syntaxes.bin");
-        let names = vec![&"Bogus", &"Kotlin"];
+        let names = ["Bogus", "Kotlin"];
         let res = dump::syntax::dump_syntaxset_to_binary_by_names(
-            names,
-            file_path.to_str().unwrap(),
+            &names,
+            &file_path.to_str().unwrap(),
             true,
         );
         assert!(res.is_err());
+        assert_eq!(file_path.is_file(), false);
+
+        // repeat with newline parameter = false
+        let res = dump::syntax::dump_syntaxset_to_binary_by_names(
+            &names,
+            &file_path.to_str().unwrap(),
+            false,
+        );
+        assert!(res.is_err());
+        assert_eq!(file_path.is_file(), false);
+
         // cleanup
         tmpdir.close().unwrap();
     }
