@@ -17,8 +17,6 @@ use syntect::parsing::SyntaxSet;
 use crate::build::syntax::build_syntaxset_by_names;
 use crate::errors::TCResult;
 
-// TODO: add no newline unit tests
-
 pub fn dump_syntaxset_to_binary(ss: &SyntaxSet, filepath: &str) -> TCResult<()> {
     match dump_to_file(ss, filepath) {
         Ok(_n) => Ok(()),
