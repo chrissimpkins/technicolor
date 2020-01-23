@@ -12,6 +12,11 @@
 -->
 
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+Copyright Dracula Theme. MIT License
+License: https://github.com/dracula/sublime/blob/master/LICENSE
+Source: https://raw.githubusercontent.com/dracula/sublime/master/Dracula.tmTheme
+-->
 <plist version="1.0">
 <dict>
 	<key>name</key>
