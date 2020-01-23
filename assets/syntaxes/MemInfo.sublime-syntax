@@ -1,0 +1,17 @@
+%YAML 1.2
+# Copyright bat-developers. Apache License, v2.0
+# License: https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE
+# Source: https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/MemInfo.sublime-syntax
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+name: MemInfo
+file_extensions:
+  - meminfo
+scope: source.meminfo
+
+contexts:
+  main:
+    - match: '^([^:]+)\w*:\w*(.*)$'
+      captures:
+        1: keyword.other.meminfo-key
+        2: string.other.meminfo-value
