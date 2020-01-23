@@ -138,9 +138,9 @@ class DefinitionCollection(object):
 
     def write_theme_files(self):
         doctypes = (
-            "<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">",
-            "<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">",
-            )
+            '<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">',
+            '<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">',
+        )
         fails = 0
         fails_list = []
         successes = 0
@@ -165,9 +165,7 @@ class DefinitionCollection(object):
 
             filename = c.name + ".tmTheme"
             root_dir = pathlib.Path(__file__).resolve().parent.parent
-            outpath = pathlib.PurePath(root_dir).joinpath(
-                "assets", "themes", filename
-            )
+            outpath = pathlib.PurePath(root_dir).joinpath("assets", "themes", filename)
 
             with open(outpath, "w") as f:
                 f.write(outfile_text)
