@@ -1,0 +1,13 @@
+%YAML 1.2
+# Copyright Sublime Packages Authors. Sublime Packages License
+# License: https://github.com/sublimehq/Packages/blob/master/LICENSE
+# Source: https://raw.githubusercontent.com/sublimehq/Packages/master/ShellScript/Shell-Unix-Generic.sublime-syntax
+---
+name: Shell-Unix-Generic
+hidden: true
+scope: source.shell
+contexts:
+  prototype:
+    - include: scope:source.shell.bash#prototype
+  main:
+    - include: scope:source.shell.bash
