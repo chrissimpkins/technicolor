@@ -55,7 +55,9 @@ class DefinitionCollection(object):
                     not line.startswith("#") and len(line.strip()) > 0
                 ):  # = comments in definition files
                     parsed_list = line.strip().split("::")
-                    assert len(parsed_list) == 5
+                    if len(parsed_list) != 5:
+                        sys.stderr.write(f"[PARSE FAIL]: --> {parsed_list}\n")
+                        sys.exit(1)
                     syntax = Syntax(
                         parsed_list[0],
                         parsed_list[1],
