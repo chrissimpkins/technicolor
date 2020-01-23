@@ -3,7 +3,7 @@
 <!--
 Copyright Mattia Astorino. MIT License
 License: https://github.com/equinusocio/material-theme/blob/master/LICENSE.md
-Source: https://raw.githubusercontent.com/equinusocio/material-theme/master/schemes/Material-Theme.tmTheme
+Source: https://raw.githubusercontent.com/equinusocio/material-theme/master/schemes/Material-Theme-Palenight.tmTheme
 -->
 <plist version="1.0">
 <dict>
@@ -12,36 +12,36 @@ Source: https://raw.githubusercontent.com/equinusocio/material-theme/master/sche
 	<key>colorSpaceName</key>
 	<string>sRGB</string>
 	<key>name</key>
-	<string>Material-Theme</string>
+	<string>Material-Theme-Palenight</string>
 	<key>semanticClass</key>
-	<string>material.theme.default</string>
+	<string>material.theme.palenight</string>
 	<key>settings</key>
 	<array>
 		<dict>
 			<key>settings</key>
 			<dict>
 				<key>activeGuide</key>
-				<string>#80CBC470</string>
+				<string>#828ED5</string>
 				<key>background</key>
-				<string>#263238</string>
+				<string>#292D3E</string>
 				<key>caret</key>
 				<string>#FFCC00</string>
 				<key>findHighlight</key>
 				<string>#F8E71C</string>
 				<key>foreground</key>
-				<string>#EEFFFF</string>
+				<string>#959DCB</string>
 				<key>guide</key>
-				<string>#37474F80</string>
+				<string>#4E557980</string>
 				<key>gutterForeground</key>
-				<string>#37474F</string>
+				<string>#3A3F58</string>
 				<key>invisibles</key>
-				<string>#65737E</string>
+				<string>#4E5579</string>
 				<key>lineHighlight</key>
-				<string>#00000050</string>
+				<string>#00000030</string>
 				<key>popupCss</key>
 				<string>html {
-  background-color: #263238;
-  color: #EEFFFF;
+  background-color: #292D3E;
+  color: #959DCB;
   padding: 16px;
 }
 a {
@@ -69,13 +69,13 @@ a {
 }
 </string>
 				<key>selection</key>
-				<string>#80CBC420</string>
+				<string>#717CB440</string>
 				<key>selectionBorder</key>
-				<string>#80CBC420</string>
+				<string>#717CB440</string>
 				<key>shadow</key>
 				<string>#00000010</string>
 				<key>stackGuide</key>
-				<string>#37474FFF</string>
+				<string>#4E5579</string>
 			</dict>
 		</dict>
 		<dict>
@@ -88,7 +88,7 @@ a {
 				<key>fontStyle</key>
 				<string>italic</string>
 				<key>foreground</key>
-				<string>#546E7A</string>
+				<string>#676E95</string>
 			</dict>
 		</dict>
 		<dict>
@@ -99,7 +99,7 @@ a {
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#EEFFFF</string>
+				<string>#959DCB</string>
 			</dict>
 		</dict>
 		<dict>
@@ -577,7 +577,7 @@ a {
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#EEFFFF</string>
+				<string>#959DCB</string>
 			</dict>
 		</dict>
 		<dict>
@@ -599,7 +599,7 @@ a {
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#65737E</string>
+				<string>#4E5579</string>
 			</dict>
 		</dict>
 		<dict>
@@ -695,9 +695,9 @@ a {
 			<key>settings</key>
 			<dict>
 				<key>background</key>
-				<string>#65737E</string>
+				<string>#4E5579</string>
 				<key>foreground</key>
-				<string>#65737E</string>
+				<string>#4E5579</string>
 			</dict>
 		</dict>
 		<dict>
@@ -765,7 +765,7 @@ a {
 			<key>settings</key>
 			<dict>
 				<key>background</key>
-				<string>#00000050</string>
+				<string>#00000030</string>
 			</dict>
 		</dict>
 		<dict>
@@ -776,7 +776,7 @@ a {
 			<key>settings</key>
 			<dict>
 				<key>background</key>
-				<string>#00000050</string>
+				<string>#00000030</string>
 			</dict>
 		</dict>
 		<dict>
@@ -787,7 +787,7 @@ a {
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#EEFFFF</string>
+				<string>#959DCB</string>
 			</dict>
 		</dict>
 		<dict>
@@ -800,7 +800,7 @@ a {
 				<key>fontStyle</key>
 				<string></string>
 				<key>foreground</key>
-				<string>#65737E</string>
+				<string>#4E5579</string>
 			</dict>
 		</dict>
 		<dict>
@@ -811,7 +811,7 @@ a {
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#546E7A</string>
+				<string>#676E95</string>
 			</dict>
 		</dict>
 		<dict>
@@ -833,11 +833,11 @@ a {
 			<key>settings</key>
 			<dict>
 				<key>background</key>
-				<string>#00000050</string>
+				<string>#00000030</string>
 				<key>fontStyle</key>
 				<string>bold</string>
 				<key>foreground</key>
-				<string>#65737E</string>
+				<string>#4E5579</string>
 			</dict>
 		</dict>
 		<dict>
@@ -850,7 +850,7 @@ a {
 				<key>background</key>
 				<string></string>
 				<key>foreground</key>
-				<string>#EEFFFF</string>
+				<string>#959DCB</string>
 			</dict>
 		</dict>
 		<dict>
@@ -957,7 +957,7 @@ a {
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#65737E</string>
+				<string>#4E5579</string>
 			</dict>
 		</dict>
 		<dict>
@@ -968,7 +968,7 @@ a {
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#65737E</string>
+				<string>#4E5579</string>
 			</dict>
 		</dict>
 		<dict>
