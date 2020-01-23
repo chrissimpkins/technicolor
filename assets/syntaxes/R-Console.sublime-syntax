@@ -1,0 +1,18 @@
+%YAML 1.2
+# Copyright Sublime Packages Authors. Sublime Packages License
+# License: https://github.com/sublimehq/Packages/blob/master/LICENSE
+# Source: https://raw.githubusercontent.com/sublimehq/Packages/master/R/R%20Console.sublime-syntax
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+name: R Console
+file_extensions: []
+scope: source.r-console
+contexts:
+  main:
+    - match: "^> "
+      scope: punctuation.section.embedded.r-console
+      push:
+        - meta_scope: source.r.embedded.r-console
+        - match: \n|\z
+          pop: true
+        - include: scope:source.r
