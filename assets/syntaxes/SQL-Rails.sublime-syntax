@@ -1,0 +1,21 @@
+%YAML 1.2
+# Copyright Sublime Packages Authors. Sublime Packages License
+# License: https://github.com/sublimehq/Packages/blob/master/LICENSE
+# Source: https://raw.githubusercontent.com/sublimehq/Packages/master/Rails/SQL%20(Rails).sublime-syntax
+---
+name: SQL (Rails)
+file_extensions:
+  - erbsql
+  - sql.erb
+scope: source.sql.ruby
+contexts:
+  main:
+    - match: <%+(?!>)=?
+      push:
+        - meta_scope: source.ruby.rails.embedded.sql
+        - match: "%>"
+          pop: true
+        - match: "#.*?(?=%>)"
+          scope: comment.line.number-sign.ruby
+        - include: "Ruby on Rails.sublime-syntax"
+    - include: 'scope:source.sql'
