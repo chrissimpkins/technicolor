@@ -1,0 +1,17 @@
+%YAML 1.2
+# Copyright Sublime Packages Authors. Sublime Packages License
+# License: https://github.com/sublimehq/Packages/blob/master/LICENSE
+# Source: https://raw.githubusercontent.com/sublimehq/Packages/master/Rust/Cargo.sublime-syntax
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+name: Cargo Build Results
+scope: source.build_results
+hidden: true
+contexts:
+  main:
+    - match: '^(..[^:\n]*):([0-9]+):?([0-9]+)?:? '
+      scope: entity.name.filename
+    - match: '\berror: '
+      scope: message.error
+    - match: '^\[.+\]$'
+      scope: comment
