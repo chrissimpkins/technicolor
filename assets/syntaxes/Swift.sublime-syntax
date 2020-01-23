@@ -1,8 +1,9 @@
 %YAML 1.2
+# Copyright bat-developers. Apache License, v2.0
+# License: https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE
+# Source: https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/Swift.sublime-syntax
 ---
 # http://www.sublimetext.com/docs/3/syntax.html
-# Copyright (c) 2018-2020 bat-developers
-# Apache License, v2.0
 name: Swift
 file_extensions:
   - swift
