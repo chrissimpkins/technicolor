@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-import os
 import pathlib
 import sys
 
 import requests
+
 
 class Definition(object):
     def __init__(self, name, author, license, license_url, url):
@@ -18,7 +18,7 @@ class Definition(object):
 
     def __repr__(self):
         return f"Name: {self.name}\nAuthor: {self.author}\nLicense: {self.license}\nLicense URL:{self.license_url}\nURL: {self.url}"
- 
+
 
 class Syntax(Definition):
     def __init__(self, name, author, license, license_url, url):
@@ -28,6 +28,7 @@ class Syntax(Definition):
 
     def get_metadata_text(self):
         return f"{self.comment_opening_delimiter} Copyright {self.author}. {self.license}\n{self.comment_opening_delimiter} License: {self.license_url}\n{self.comment_opening_delimiter} Source: {self.url}\n"
+
 
 class Theme(Definition):
     def __init__(self, name, author, license, license_url, url):
@@ -50,19 +51,35 @@ class DefinitionCollection(object):
         # parse syntax definition list
         with open(self.syntax_definition_path, "r") as f:
             for line in f.readlines():
-                if not line.startswith("#") and len(line.strip()) > 0:   # = comments in definition files
+                if (
+                    not line.startswith("#") and len(line.strip()) > 0
+                ):  # = comments in definition files
                     parsed_list = line.strip().split("::")
-                    assert(len(parsed_list) == 5)
-                    syntax = Syntax(parsed_list[0], parsed_list[1], parsed_list[2], parsed_list[3], parsed_list[4])
+                    assert len(parsed_list) == 5
+                    syntax = Syntax(
+                        parsed_list[0],
+                        parsed_list[1],
+                        parsed_list[2],
+                        parsed_list[3],
+                        parsed_list[4],
+                    )
                     self.syntax_list.append(syntax)
 
         # parse theme definition list
         with open(self.theme_definition_path, "r") as f:
             for line in f.readlines():
-                if not line.startswith("#") and len(line.strip()) > 0:  # = comments in definition files
+                if (
+                    not line.startswith("#") and len(line.strip()) > 0
+                ):  # = comments in definition files
                     parsed_list = line.strip().split("::")
-                    assert(len(parsed_list) == 5)
-                    theme = Theme(parsed_list[0], parsed_list[1], parsed_list[2], parsed_list[3], parsed_list[4])
+                    assert len(parsed_list) == 5
+                    theme = Theme(
+                        parsed_list[0],
+                        parsed_list[1],
+                        parsed_list[2],
+                        parsed_list[3],
+                        parsed_list[4],
+                    )
                     self.theme_list.append(theme)
 
     def write_syntax_files(self):
@@ -72,7 +89,9 @@ class DefinitionCollection(object):
         for c in self.syntax_list:
             r = requests.get(c.url, stream=True)
             if not (r.status_code == requests.codes.ok):
-                sys.stderr.write(f"[**FAIL**]: {c.name} ******************** [Status: {r.status_code}]")
+                sys.stderr.write(
+                    f"[**FAIL**]: {c.name} ******************** [Status: {r.status_code}]"
+                )
                 sys.stderr.write(f"Status code: {r.status_code}\n")
                 fails += 1
                 fails_list.append(c.name)
@@ -88,8 +107,10 @@ class DefinitionCollection(object):
 
             filename = c.name + ".sublime-syntax"
             root_dir = pathlib.Path(__file__).resolve().parent.parent
-            outpath = pathlib.PurePath(root_dir).joinpath("assets", "syntaxes", filename)
-            
+            outpath = pathlib.PurePath(root_dir).joinpath(
+                "assets", "syntaxes", filename
+            )
+
             with open(outpath, "w") as f:
                 f.write(outfile_text)
                 print(f"[OK] {c.name}")
@@ -99,21 +120,11 @@ class DefinitionCollection(object):
             print(f"{fails} files were not pulled: {fails_list}")
 
 
-
-
 def main():
     collection = DefinitionCollection()
     collection.parse_definition_files()
     collection.write_syntax_files()
 
 
-
-
-
-
-
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
-
