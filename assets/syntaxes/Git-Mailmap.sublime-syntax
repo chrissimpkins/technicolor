@@ -1,0 +1,26 @@
+%YAML 1.2
+# Copyright Sublime Packages Authors. Sublime Packages License
+# License: https://github.com/sublimehq/Packages/blob/master/LICENSE
+# Source: https://raw.githubusercontent.com/sublimehq/Packages/master/Git%20Formats/Git%20Mailmap.sublime-syntax
+---
+# Syntax based on documentation here:
+# https://www.git-scm.com/docs/git-check-mailmap#_mapping_authors
+
+name: Git Mailmap
+file_extensions:
+  - .mailmap
+  - mailmap
+scope: text.git.mailmap
+
+contexts:
+  main:
+    - include: Git Common.sublime-syntax#comments
+    # lazy email reference
+    - match: <(?=\S+?>)
+      scope: punctuation.definition.reference.email.begin.git
+      push:
+        - Git Common.sublime-syntax#email-meta
+        - Git Common.sublime-syntax#email-name
+    # proper name
+    - match: '[^ \t<#][^<#\n]+?(?=[ \t]*(<|$))'
+      scope: meta.reference.user.git
