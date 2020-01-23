@@ -1,1 +1,236 @@
 #[NAME]::[AUTHOR]::[LICENSE]::[LICENSE_URL]::[SOURCE_URL]
+
+1337::Mark Herpich::MIT License::https://github.com/MarkMichos/1337-Scheme/blob/master/LICENSE::https://raw.githubusercontent.com/MarkMichos/1337-Scheme/master/1337.tmTheme
+
+10-Percent-Too-Dull::Nicholas Cerminara::MIT License::https://github.com/scotch-io/10-percent-too-dull-for-my-tastes/blob/master/LICENSE::https://raw.githubusercontent.com/scotch-io/10-percent-too-dull-for-my-tastes/master/scotchy.tmTheme
+
+Agila-Classic::Arvi Acuzar::MIT License::https://github.com/arvi/Agila-Theme/blob/master/LICENSE::https://raw.githubusercontent.com/arvi/Agila-Theme/master/Agila%20Classic%20Oceanic%20Next.tmTheme
+
+Agila-Cobalt::Arvi Acuzar::MIT License::https://github.com/arvi/Agila-Theme/blob/master/LICENSE::https://raw.githubusercontent.com/arvi/Agila-Theme/master/Agila%20Cobalt.tmTheme
+
+Agila-Neon::Arvi Acuzar::MIT License::https://github.com/arvi/Agila-Theme/blob/master/LICENSE::https://raw.githubusercontent.com/arvi/Agila-Theme/master/Agila%20Neon%20Monocyanide.tmTheme
+
+Agila-Origin::Arvi Acuzar::MIT License::https://github.com/arvi/Agila-Theme/blob/master/LICENSE::https://raw.githubusercontent.com/arvi/Agila-Theme/master/Agila%20Origin%20Oceanic%20Next.tmTheme
+
+Agola-Dark::Fatih Kececi (UnderlineWords)::MIT License::https://github.com/UnderlineWords/Agola-Color-Schemes/blob/master/LICENSE::https://raw.githubusercontent.com/UnderlineWords/Agola-Color-Schemes/master/AgolaDark.tmTheme
+
+Agola-Dark-X2::Fatih Kececi (UnderlineWords)::MIT License::https://github.com/UnderlineWords/Agola-Color-Schemes/blob/master/LICENSE::https://raw.githubusercontent.com/UnderlineWords/Agola-Color-Schemes/master/AgolaDarkX2.tmTheme
+
+Agola-Expert-Class::Fatih Kececi (UnderlineWords)::MIT License::https://github.com/UnderlineWords/Agola-Color-Schemes/blob/master/LICENSE::https://raw.githubusercontent.com/UnderlineWords/Agola-Color-Schemes/master/AgolaExpertClass.tmTheme
+
+Agola-Light::Fatih Kececi (UnderlineWords)::MIT License::https://github.com/UnderlineWords/Agola-Color-Schemes/blob/master/LICENSE::https://raw.githubusercontent.com/UnderlineWords/Agola-Color-Schemes/master/AgolaLight.tmTheme
+
+Agola-Nimbus::Fatih Kececi (UnderlineWords)::MIT License::https://github.com/UnderlineWords/Agola-Color-Schemes/blob/master/LICENSE::https://raw.githubusercontent.com/UnderlineWords/Agola-Color-Schemes/master/AgolaNimbus.tmTheme
+
+ANSI-Dark::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/themes/ansi-dark.tmTheme
+
+ANSI-Light::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/themes/ansi-light.tmTheme
+
+Atomic-DarkBlue::Gerard Bajona::MIT License::https://github.com/gerardbm/sublime-atomic-scheme/blob/master/LICENSE::https://raw.githubusercontent.com/gerardbm/sublime-atomic-scheme/master/Atomic%20-%20Dark%20blue%20(Soft).tmTheme
+
+Atomic-DarkCyan::Gerard Bajona::MIT License::https://github.com/gerardbm/sublime-atomic-scheme/blob/master/LICENSE::https://raw.githubusercontent.com/gerardbm/sublime-atomic-scheme/master/Atomic%20-%20Dark%20cyan%20(Soft).tmTheme
+
+Atomic-Light-Hard::Gerard Bajona::MIT License::https://github.com/gerardbm/sublime-atomic-scheme/blob/master/LICENSE::https://raw.githubusercontent.com/gerardbm/sublime-atomic-scheme/master/Atomic%20-%20Light%20(Hard).tmTheme
+
+Atomic-Light-Soft::Gerard Bajona::MIT License::https://github.com/gerardbm/sublime-atomic-scheme/blob/master/LICENSE::https://raw.githubusercontent.com/gerardbm/sublime-atomic-scheme/master/Atomic%20-%20Light%20(Soft).tmTheme
+
+Atomic-NightOrange::Gerard Bajona::MIT License::https://github.com/gerardbm/sublime-atomic-scheme/blob/master/LICENSE::https://raw.githubusercontent.com/gerardbm/sublime-atomic-scheme/master/Atomic%20-%20Night%20orange%20(Soft).tmTheme
+
+Atomic-NightRed::Gerard Bajona::MIT License::https://github.com/gerardbm/sublime-atomic-scheme/blob/master/LICENSE::https://raw.githubusercontent.com/gerardbm/sublime-atomic-scheme/master/Atomic%20-%20Night%20red%20(Soft).tmTheme
+
+#Ayu themes are pinned to 4.0.0 tag as no longer released in tmTheme format
+Ayu-Dark::Ike Ku::MIT License::https://github.com/dempfi/ayu/blob/master/LICENSE::https://raw.githubusercontent.com/dempfi/ayu/4.0.0/ayu-dark.tmTheme
+
+Ayu-Light::Ike Ku::MIT License::https://github.com/dempfi/ayu/blob/master/LICENSE::https://raw.githubusercontent.com/dempfi/ayu/4.0.0/ayu-light.tmTheme
+
+Ayu-Mirage::Ike Ku::MIT License::https://github.com/dempfi/ayu/blob/master/LICENSE::https://raw.githubusercontent.com/dempfi/ayu/4.0.0/ayu-mirage.tmTheme
+
+Base-16-Atlas::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-atlas.tmTheme
+
+Base-16-Dark::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-default-dark.tmTheme
+
+Base-16-Gruvbox-Dark-Hard::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-gruvbox-dark-hard.tmTheme
+
+Base-16-Gruvbox-Dark-Medium::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-gruvbox-dark-medium.tmTheme
+
+Base-16-Gruvbox-Dark-Pale::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-gruvbox-dark-pale.tmTheme
+
+Base-16-Gruvbox-Dark-Soft::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-gruvbox-dark-soft.tmTheme
+
+Base-16-Gruvbox-Light-Soft::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-gruvbox-light-soft.tmTheme
+
+Base-16-Gruvbox-Light-Medium::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-gruvbox-light-medium.tmTheme
+
+Base16-Gruvbox-Light-Hard::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-gruvbox-light-hard.tmTheme
+
+Base-16-Eighties::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-eighties.tmTheme
+
+Base-16-Flat::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-flat.tmTheme
+
+Base-16-Light::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-default-dark.tmTheme
+
+Base-16-Mocha-Dark::Gadzhi Kharkharov::MIT License::https://github.com/kkga/spacegray/blob/master/LICENSE::https://raw.githubusercontent.com/kkga/spacegray/master/base16-mocha.dark.tmTheme
+
+Base-16-Monokai::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-monokai.tmTheme
+
+Base-16-Nord::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-nord.tmTheme
+
+Base-16-Ocean-Dark::Gadzhi Kharkharov::MIT License::https://github.com/kkga/spacegray/blob/master/LICENSE::https://raw.githubusercontent.com/kkga/spacegray/master/base16-ocean.dark.tmTheme
+
+Base-16-Ocean-Light::Gadzhi Kharkharov::MIT License::https://github.com/kkga/spacegray/blob/master/LICENSE::https://raw.githubusercontent.com/kkga/spacegray/master/base16-ocean.light.tmTheme
+
+Base-16-OneDark::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-onedark.tmTheme
+
+Base-16-OneLight::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-one-light.tmTheme
+
+Base-16-Spacemacs::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-spacemacs.tmTheme
+
+Base-16-Snazzy::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-snazzy.tmTheme
+
+Base-16-Twilight::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-twilight.tmTheme
+
+Behave::Christian Petersen (http://cbp.io) <chrs@cbp.io>::MIT License::https://github.com/fnky/behave-theme/blob/master/LICENSE::https://raw.githubusercontent.com/fnky/behave-theme/master/Behave.tmTheme
+
+Boxy-Nova::Ihor Oleksandrov::MIT License::https://github.com/bofm/sublime-boxy-theme/blob/master/LICENSE.md::https://raw.githubusercontent.com/bofm/sublime-boxy-theme/master/schemes/Boxy%20Nova.tmTheme
+
+Boxy-Yesterday::Ihor Oleksandrov::MIT License::https://github.com/bofm/sublime-boxy-theme/blob/master/LICENSE.md::https://raw.githubusercontent.com/bofm/sublime-boxy-theme/master/schemes/Boxy%20Yesterday.tmTheme
+
+# pinned at tag as .tmTheme file is no longer released in master branch
+Brackets-Dark::Janos Wortman::MIT License::https://github.com/jwortmann/brackets-color-scheme/blob/master/LICENSE::https://raw.githubusercontent.com/jwortmann/brackets-color-scheme/v2.0.0/Brackets%20Dark.tmTheme
+
+# pinned at tag as .tmTheme file is no longer released in master branch
+Brackets-Light::Janos Wortman::MIT License::https://github.com/jwortmann/brackets-color-scheme/blob/master/LICENSE::https://raw.githubusercontent.com/jwortmann/brackets-color-scheme/v2.0.0/Brackets%20Light.tmTheme
+
+ChromoDynamics::MagicStack Inc.::MIT License::https://github.com/MagicStack/Chromodynamics/blob/master/LICENSE::https://raw.githubusercontent.com/MagicStack/Chromodynamics/master/Chromodynamics.tmTheme
+
+Creamy::Quim Calpe::MIT License::https://github.com/quimcalpe/sublime-creamy-theme/blob/master/LICENSE::https://raw.githubusercontent.com/quimcalpe/sublime-creamy-theme/master/Creamy.tmTheme
+
+Dracula::Dracula Theme::MIT License::https://github.com/dracula/sublime/blob/master/LICENSE::https://raw.githubusercontent.com/dracula/sublime/master/Dracula.tmTheme
+
+Enki::Kristi Russell::MIT License::https://github.com/enkia/enki-theme/blob/master/LICENSE::https://raw.githubusercontent.com/enkia/enki-theme/master/scheme/Enki.tmTheme
+
+Enki-Alt::Kristi Russell::MIT License::https://github.com/enkia/enki-theme/blob/master/LICENSE::https://raw.githubusercontent.com/enkia/enki-theme/master/scheme/Enki-Alt.tmTheme
+
+Enki-Aster::Kristi Russell::MIT License::https://github.com/enkia/enki-theme/blob/master/LICENSE::https://raw.githubusercontent.com/enkia/enki-theme/master/scheme/Enki-Aster.tmTheme
+
+Enki-Aster-Red::Kristi Russell::MIT License::https://github.com/enkia/enki-theme/blob/master/LICENSE::https://raw.githubusercontent.com/enkia/enki-theme/master/scheme/Enki-Aster-red.tmTheme
+
+Enki-Light::Kristi Russell::MIT License::https://github.com/enkia/enki-theme/blob/master/LICENSE::https://raw.githubusercontent.com/enkia/enki-theme/master/scheme/Enki-Light.tmTheme
+
+Enki-Tokyo-Night::Kristi Russell::MIT License::https://github.com/enkia/enki-theme/blob/master/LICENSE::https://raw.githubusercontent.com/enkia/enki-theme/master/scheme/Enki-Tokyo-Night.tmTheme
+
+Fox-Dark::Karel Vuong::MIT License::https://github.com/karelvuong/st-fox/blob/master/LICENSE::https://raw.githubusercontent.com/karelvuong/st-fox/master/fox.dark.tmTheme
+
+Fox-Light::Karel Vuong::MIT License::https://github.com/karelvuong/st-fox/blob/master/LICENSE::https://raw.githubusercontent.com/karelvuong/st-fox/master/fox.light.tmTheme
+
+Glacier::Joey Figaro::MIT License::https://github.com/shovelandsandbox/glacier-theme/blob/master/LICENSE::https://raw.githubusercontent.com/shovelandsandbox/glacier-theme/master/glacier-legacy.tmTheme
+
+Inspired-Github::Seth Lopez::MIT License::https://github.com/sethlopezme/InspiredGitHub.tmtheme/blob/master/LICENSE::https://raw.githubusercontent.com/sethlopezme/InspiredGitHub.tmtheme/master/InspiredGitHub.tmTheme
+
+Lucario::Raphael Amorim::MIT License::https://github.com/raphamorim/lucario/blob/master/README.md::https://raw.githubusercontent.com/raphamorim/lucario/master/Lucario.tmTheme
+
+Material::Mattia Astorino::MIT License::https://github.com/equinusocio/material-theme/blob/master/LICENSE.md::https://raw.githubusercontent.com/equinusocio/material-theme/master/schemes/Material-Theme.tmTheme
+
+Material-Augmented-Reaction::Saad Quadri::MIT License::https://github.com/saadq/Materialize/blob/master/LICENSE::https://raw.githubusercontent.com/saadq/Materialize/master/schemes/Material%20Augmented%20Reaction.tmTheme
+
+Material-Brogrammer::Saad Quadri::MIT License::https://github.com/saadq/Materialize/blob/master/LICENSE::https://raw.githubusercontent.com/saadq/Materialize/master/schemes/Material%20Brogrammer.tmTheme
+
+Material-Cobalt::Saad Quadri::MIT License::https://github.com/saadq/Materialize/blob/master/LICENSE::https://raw.githubusercontent.com/saadq/Materialize/master/schemes/Material%20Cobalt.tmTheme
+
+Material-Darker::Mattia Astorino::MIT License::https://github.com/equinusocio/material-theme/blob/master/LICENSE.md::https://raw.githubusercontent.com/equinusocio/material-theme/master/schemes/Material-Theme-Darker.tmTheme
+
+Material-Firewatch::Saad Quadri::MIT License::https://github.com/saadq/Materialize/blob/master/LICENSE::https://raw.githubusercontent.com/saadq/Materialize/master/schemes/Material%20Firewatch.tmTheme
+
+Material-Flatland::Saad Quadri::MIT License::https://github.com/saadq/Materialize/blob/master/LICENSE::https://raw.githubusercontent.com/saadq/Materialize/master/schemes/Material%20Flatland.tmTheme
+
+Material-Lighter::Mattia Astorino::MIT License::https://github.com/equinusocio/material-theme/blob/master/LICENSE.md::https://raw.githubusercontent.com/equinusocio/material-theme/master/schemes/Material-Theme-Lighter.tmTheme
+
+Material-Monokai::Saad Quadri::MIT License::https://github.com/saadq/Materialize/blob/master/LICENSE::https://raw.githubusercontent.com/saadq/Materialize/master/schemes/Material%20Monokai.tmTheme
+
+Material-Monokai-Soda::Saad Quadri::MIT License::https://github.com/saadq/Materialize/blob/master/LICENSE::https://raw.githubusercontent.com/saadq/Materialize/master/schemes/Material%20Monokai%20Soda.tmTheme
+
+Material-OneDark::Saad Quadri::MIT License::https://github.com/saadq/Materialize/blob/master/LICENSE::https://raw.githubusercontent.com/saadq/Materialize/master/schemes/Material%20One%20Dark.tmTheme
+
+Material-Palenight::Mattia Astorino::MIT License::https://github.com/equinusocio/material-theme/blob/master/LICENSE.md::https://raw.githubusercontent.com/equinusocio/material-theme/master/schemes/Material-Theme-Palenight.tmTheme
+
+Material-Spaceblack::Saad Quadri::MIT License::https://github.com/saadq/Materialize/blob/master/LICENSE::https://raw.githubusercontent.com/saadq/Materialize/master/schemes/Material%20Spaceblack.tmTheme
+
+Material-Spaceblack-Oceanic::Saad Quadri::MIT License::https://github.com/saadq/Materialize/blob/master/LICENSE::https://raw.githubusercontent.com/saadq/Materialize/master/schemes/Material%20Spaceblack%20Oceanic.tmTheme
+
+Material-Spacegray::Saad Quadri::MIT License::https://github.com/saadq/Materialize/blob/master/LICENSE::https://raw.githubusercontent.com/saadq/Materialize/master/schemes/Material%20Spacegray.tmTheme
+
+Material-Stereokai::Saad Quadri::MIT License::https://github.com/saadq/Materialize/blob/master/LICENSE::https://raw.githubusercontent.com/saadq/Materialize/master/schemes/Material%20Stereokai.tmTheme
+
+Material-Twilight::Saad Quadri::MIT License::https://github.com/saadq/Materialize/blob/master/LICENSE::https://raw.githubusercontent.com/saadq/Materialize/master/schemes/Material%20Twilight.tmTheme
+
+Material-Vim-Blackboard::Saad Quadri::MIT License::https://github.com/saadq/Materialize/blob/master/LICENSE::https://raw.githubusercontent.com/saadq/Materialize/master/schemes/Material%20Vim%20Blackboard.tmTheme
+
+MonoCyanide::lefoy me@lefoy.net::MIT License::https://github.com/lefoy/cyanide-theme/blob/master/LICENSE.md::https://raw.githubusercontent.com/lefoy/cyanide-theme/master/Monocyanide.tmTheme
+
+MonoCyanide-Black::lefoy me@lefoy.net::MIT License::https://github.com/lefoy/cyanide-theme/blob/master/LICENSE.md::https://raw.githubusercontent.com/lefoy/cyanide-theme/master/Monocyanide%20-%20Black.tmTheme
+
+MonoCyanide-Contrasted::lefoy me@lefoy.net::MIT License::https://github.com/lefoy/cyanide-theme/blob/master/LICENSE.md::https://raw.githubusercontent.com/lefoy/cyanide-theme/master/Monocyanide%20-%20Contrasted.tmTheme
+
+MonoCyanide-Contrasted-Light::lefoy me@lefoy.net::MIT License::https://github.com/lefoy/cyanide-theme/blob/master/LICENSE.md::https://raw.githubusercontent.com/lefoy/cyanide-theme/master/Monocyanide%20-%20Contrasted%20Light.tmTheme
+
+MonoCyanide-Contrasted-Semi::lefoy me@lefoy.net::MIT License::https://github.com/lefoy/cyanide-theme/blob/master/LICENSE.md::https://raw.githubusercontent.com/lefoy/cyanide-theme/master/Monocyanide%20-%20Contrasted%20Semi.tmTheme
+
+Monokai++::Davide Casella::MIT License::https://github.com/dcasella/monokai-plusplus/blob/master/LICENSE::https://raw.githubusercontent.com/dcasella/monokai-plusplus/master/themes/Monokai%2B%2B.tmTheme
+
+Monokai-Extended::Jon Schlinkert::MIT License::https://github.com/jonschlinkert/sublime-monokai-extended/blob/master/LICENSE::https://raw.githubusercontent.com/jonschlinkert/sublime-monokai-extended/master/Monokai%20Extended.tmTheme
+
+Monokai-Extended-Bright::Jon Schlinkert::MIT License::https://github.com/jonschlinkert/sublime-monokai-extended/blob/master/LICENSE::https://raw.githubusercontent.com/jonschlinkert/sublime-monokai-extended/master/Monokai%20Extended%20Bright.tmTheme
+
+Monokai-Extended-Light::Jon Schlinkert::MIT License::https://github.com/jonschlinkert/sublime-monokai-extended/blob/master/LICENSE::https://raw.githubusercontent.com/jonschlinkert/sublime-monokai-extended/master/Monokai%20Extended%20Light.tmTheme
+
+Monokai-Extended-Origin::Jon Schlinkert::MIT License::https://github.com/jonschlinkert/sublime-monokai-extended/blob/master/LICENSE::https://raw.githubusercontent.com/jonschlinkert/sublime-monokai-extended/master/Monokai%20Extended%20Origin.tmTheme
+
+Neon::Matthew D. Morrison::MIT License::https://github.com/MattDMo/Neon-color-scheme/blob/master/LICENSE::https://raw.githubusercontent.com/MattDMo/Neon-color-scheme/master/Neon.tmTheme
+
+New-Moon::Tania Rascia::MIT License::https://github.com/taniarascia/new-moon-sublime/blob/master/LICENSE.md::https://raw.githubusercontent.com/taniarascia/new-moon-sublime/master/New%20Moon.tmTheme
+
+Oceanic-Next::Dmitri Voronianski::MIT License::https://github.com/voronianski/oceanic-next-color-scheme/blob/master/README.md::https://raw.githubusercontent.com/voronianski/oceanic-next-color-scheme/master/Oceanic%20Next.tmTheme
+
+OneHalf-Dark::Son Pham::MIT License::https://github.com/sonph/onehalf/blob/master/LICENSE.txt::https://raw.githubusercontent.com/sonph/onehalf/master/sublimetext/OneHalfDark.tmTheme
+
+OneHalf-Light::Son Pham::MIT License::https://github.com/sonph/onehalf/blob/master/LICENSE.txt::https://raw.githubusercontent.com/sonph/onehalf/master/sublimetext/OneHalfLight.tmTheme
+
+PreDawn::Jamie Wilson::MIT License::https://github.com/jamiewilson/predawn/blob/master/LICENSE.txt::https://raw.githubusercontent.com/jamiewilson/predawn/master/predawn.tmTheme
+
+PreDawn-Twilight::jrnewell::MIT License::https://github.com/jrnewell/predawn-twilight-theme/blob/master/README.md::https://raw.githubusercontent.com/jrnewell/predawn-twilight-theme/master/Predawn%20Twilight.tmTheme
+
+Primer-Dark::Karel Vuong::MIT License::https://github.com/karelvuong/st-primer/blob/master/LICENSE::https://raw.githubusercontent.com/karelvuong/st-primer/master/primer.dark.tmTheme
+
+Primer-Light::Karel Vuong::MIT License::https://github.com/karelvuong/st-primer/blob/master/LICENSE::https://raw.githubusercontent.com/karelvuong/st-primer/master/primer.light.tmTheme
+
+Railscasts-Extended::Jev Zelenkov and Ryan Bates::MIT License::https://github.com/jayzelenkov/sublime-railscasts-extended/blob/master/LICENSE::https://raw.githubusercontent.com/jayzelenkov/sublime-railscasts-extended/master/Railscasts%20Extended.tmTheme
+
+Seti-UX::Muah::MIT License::https://github.com/ctf0/Seti_UX/blob/master/LICENSE::https://raw.githubusercontent.com/ctf0/Seti_UX/master/Seti.tmTheme
+
+Solarized-Dark::Ethan Schoonover::MIT License::https://github.com/altercation/solarized/blob/master/LICENSE::https://raw.githubusercontent.com/altercation/solarized/master/textmate-colors-solarized/Solarized%20(dark).tmTheme
+
+Solarized-Light::Ethan Schoonover::MIT License::https://github.com/altercation/solarized/blob/master/LICENSE::https://raw.githubusercontent.com/altercation/solarized/master/textmate-colors-solarized/Solarized%20(light).tmTheme
+
+Tomorrow::Chris Kempson::MIT License::https://github.com/chriskempson/tomorrow-theme/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/textmate/Tomorrow.tmTheme
+
+Tomorrow-Night::Chris Kempson::MIT License::https://github.com/chriskempson/tomorrow-theme/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/textmate/Tomorrow-Night.tmTheme
+
+Tomorrow-Night-Blue::Chris Kempson::MIT License::https://github.com/chriskempson/tomorrow-theme/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/textmate/Tomorrow-Night-Blue.tmTheme
+
+Tomorrow-Night-Bright::Chris Kempson::MIT License::https://github.com/chriskempson/tomorrow-theme/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/textmate/Tomorrow-Night-Bright.tmTheme
+
+Tomorrow-Night-Eighties::Chris Kempson::MIT License::https://github.com/chriskempson/tomorrow-theme/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/textmate/Tomorrow-Night-Eighties.tmTheme
+
+TwilightCyanide::lefoy me@lefoy.net::MIT License::https://github.com/lefoy/cyanide-theme/blob/master/LICENSE.md::https://raw.githubusercontent.com/lefoy/cyanide-theme/master/Twilightcyanide.tmTheme
+
+TwilightCyanide-Black::lefoy me@lefoy.net::MIT License::https://github.com/lefoy/cyanide-theme/blob/master/LICENSE.md::https://raw.githubusercontent.com/lefoy/cyanide-theme/master/Twilightcyanide%20-%20Black.tmTheme
+
+TwilightCyanide-Contrasted::lefoy me@lefoy.net::MIT License::https://github.com/lefoy/cyanide-theme/blob/master/LICENSE.md::https://raw.githubusercontent.com/lefoy/cyanide-theme/master/Twilightcyanide%20-%20Contrasted.tmTheme
+
+TwilightCyanide-Contrasted-Light::lefoy me@lefoy.net::MIT License::https://github.com/lefoy/cyanide-theme/blob/master/LICENSE.md::https://raw.githubusercontent.com/lefoy/cyanide-theme/master/Twilightcyanide%20-%20Contrasted%20Light.tmTheme
+
+TwilightCyanide-Contrasted-Semi::lefoy me@lefoy.net::MIT License::https://github.com/lefoy/cyanide-theme/blob/master/LICENSE.md::https://raw.githubusercontent.com/lefoy/cyanide-theme/master/Twilightcyanide%20-%20Contrasted%20Semi.tmTheme
+
+TwoDark::Gadzhi Kharkharov::MIT License::https://github.com/erremauro/TwoDark/blob/master/LICENSE::https://raw.githubusercontent.com/erremauro/TwoDark/master/TwoDark.tmTheme
+
+Zenburn::Colin T.A. Gray::Simplified BSD License::https://github.com/colinta/zenburn/blob/master/LICENSE::https://raw.githubusercontent.com/colinta/zenburn/master/zenburn.tmTheme
