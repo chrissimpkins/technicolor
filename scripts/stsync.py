@@ -14,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import argparse
 import pathlib
 import sys
 
@@ -135,11 +136,53 @@ class DefinitionCollection(object):
         if fails > 0:
             print(f"{fails} files were not pulled: {fails_list}")
 
+    def write_theme_files(self):
+        doctypes = (
+            "<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">",
+            "<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">",
+            )
+        fails = 0
+        fails_list = []
+        successes = 0
+        for c in self.theme_list:
+            r = requests.get(c.url, stream=True)
+            if not (r.status_code == requests.codes.ok):
+                sys.stderr.write(
+                    f"[**FAIL**]: {c.name} ******************** [Status: {r.status_code}]"
+                )
+                sys.stderr.write(f"Status code: {r.status_code}\n")
+                fails += 1
+                fails_list.append(c.name)
+                break
+            if r.encoding is None:
+                r.encoding = "utf-8"
+
+            outfile_text = ""
+            for line in r.iter_lines(decode_unicode=True):
+                outfile_text += line + "\n"
+                if line.strip() in doctypes:
+                    outfile_text += c.get_metadata_text()
+
+            filename = c.name + ".tmTheme"
+            root_dir = pathlib.Path(__file__).resolve().parent.parent
+            outpath = pathlib.PurePath(root_dir).joinpath(
+                "assets", "themes", filename
+            )
+
+            with open(outpath, "w") as f:
+                f.write(outfile_text)
+                print(f"[OK] {c.name}")
+                successes += 1
+        print(f"Successfully pulled {successes} theme files...")
+        if fails > 0:
+            print(f"{fails} files were not pulled: {fails_list}")
+
 
 def main():
     collection = DefinitionCollection()
     collection.parse_definition_files()
     collection.write_syntax_files()
+    collection.write_theme_files()
 
 
 if __name__ == "__main__":
