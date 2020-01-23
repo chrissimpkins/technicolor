@@ -27,6 +27,8 @@ use crate::paths::BUILTIN_SYNTAXES_DIR;
 //
 // ======================================
 
+// TODO: plain text addition
+
 pub fn build_syntaxset_from_directory(
     dir: &str,
     lines_include_newline: bool,
