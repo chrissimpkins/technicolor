@@ -1,0 +1,284 @@
+#[NAME]::[AUTHOR]::[LICENSE]::[LICENSE_URL]::[SOURCE_URL]
+
+AppleScript::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/AppleScript/AppleScript.sublime-syntax
+
+AsciiDoc::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/AsciiDoc.sublime-syntax
+
+ASP::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/ASP/ASP.sublime-syntax
+
+Assembly-ARM::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/Assembly%20(ARM).sublime-syntax
+
+Assembly-x86::Vincent Prouillet::MIT License::https://github.com/getzola/zola/blob/master/LICENSE::https://raw.githubusercontent.com/getzola/zola/master/sublime_syntaxes/Assembly%20x86.sublime-syntax
+
+AWK::John Nilsson::MIT License::https://github.com/JohnNilsson/awk-sublime/blob/master/LICENSE::https://raw.githubusercontent.com/JohnNilsson/awk-sublime/master/AWK.sublime-syntax
+
+ActionScript::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/ActionScript/ActionScript.sublime-syntax
+
+Bash::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/ShellScript/Bash.sublime-syntax
+
+Bash-Builtin-Commands::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/ShellScript/commands-builtin-shell-bash.sublime-syntax
+
+Batch-File::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Batch%20File/Batch%20File.sublime-syntax
+
+Bibtex::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/LaTeX/Bibtex.sublime-syntax
+
+C::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/C%2B%2B/C.sublime-syntax
+
+Cabal::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/Cabal.sublime-syntax
+
+Camlp4::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/OCaml/camlp4.sublime-syntax
+
+Cargo::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Rust/Cargo.sublime-syntax
+
+Clojure::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Clojure/Clojure.sublime-syntax
+
+Crystal::Vincent Prouillet::MIT License::https://github.com/getzola/zola/blob/master/LICENSE::https://raw.githubusercontent.com/getzola/zola/master/sublime_syntaxes/Crystal.sublime-syntax
+
+CSharp::Sublime Text HQ Pty, @gwenzek, Matthew Winter @wintermi, Adam Lickel @lickel::MIT License::See header of this file::https://raw.githubusercontent.com/sublimehq/Packages/master/C%23/C%23.sublime-syntax
+
+CSS::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/CSS/CSS.sublime-syntax
+
+CSV::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/CSV.sublime-syntax
+
+C++::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/C%2B%2B/C%2B%2B.sublime-syntax
+
+D::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/D/D.sublime-syntax
+
+Dart::Vincent Prouillet::MIT License::https://github.com/getzola/zola/blob/master/LICENSE::https://raw.githubusercontent.com/getzola/zola/master/sublime_syntaxes/Dart.sublime-syntax
+
+Diff::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Diff/Diff.sublime-syntax
+
+Docker::Asbjorn Enge::MIT License::https://github.com/asbjornenge/Docker.tmbundle/blob/master/LICENSE::https://raw.githubusercontent.com/asbjornenge/Docker.tmbundle/master/Syntaxes/Dockerfile.sublime-syntax
+
+DotENV::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/DotENV.sublime-syntax
+
+Elixir::Po Chen::MIT License::https://github.com/princemaple/elixir-sublime-syntax/blob/master/LICENSE::https://raw.githubusercontent.com/princemaple/elixir-sublime-syntax/master/Elixir.sublime-syntax
+
+Elm::Alex Neslusan::MIT License::https://github.com/elm-community/SublimeElmLanguageSupport/blob/master/LICENSE::https://raw.githubusercontent.com/elm-community/SublimeElmLanguageSupport/master/Syntaxes/Elm.sublime-syntax
+
+Elm-Compile-Messages::Alex Neslusan::MIT License::https://github.com/elm-community/SublimeElmLanguageSupport/blob/master/LICENSE::https://raw.githubusercontent.com/elm-community/SublimeElmLanguageSupport/master/Syntaxes/Elm%20Compile%20Messages.sublime-syntax
+
+Elm-Documentation::Alex Neslusan::MIT License::https://github.com/elm-community/SublimeElmLanguageSupport/blob/master/LICENSE::https://raw.githubusercontent.com/elm-community/SublimeElmLanguageSupport/master/Syntaxes/Elm%20Documentation.sublime-syntax
+
+Erlang::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Erlang/Erlang.sublime-syntax
+
+Fish::Phidica Veia::MIT License::https://github.com/Phidica/sublime-fish/blob/master/LICENSE::https://raw.githubusercontent.com/Phidica/sublime-fish/master/fish.sublime-syntax
+
+FSharp::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/FSharp.sublime-syntax
+
+FStab::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/Fstab.sublime-syntax
+
+Git-Attributes::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Git%20Formats/Git%20Attributes.sublime-syntax
+
+Git-Commit::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Git%20Formats/Git%20Commit.sublime-syntax
+
+Git-Common::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Git%20Formats/Git%20Common.sublime-syntax
+
+Git-Config::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Git%20Formats/Git%20Config.sublime-syntax
+
+Git-Ignore::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Git%20Formats/Git%20Ignore.sublime-syntax
+
+Git-Link::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Git%20Formats/Git%20Link.sublime-syntax
+
+Git-Log::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Git%20Formats/Git%20Log.sublime-syntax
+
+Git-Mailmap::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Git%20Formats/Git%20Mailmap.sublime-syntax
+
+Git-Rebase::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Git%20Formats/Git%20Rebase.sublime-syntax
+
+Go::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Go/Go.sublime-syntax
+
+Graphviz-DOT::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Graphviz/DOT.sublime-syntax
+
+Groovy::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Groovy/Groovy.sublime-syntax
+
+Group::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/Group.sublime-syntax
+
+Handlebars::Vincent Prouillet::MIT License::https://github.com/getzola/zola/blob/master/LICENSE::https://raw.githubusercontent.com/getzola/zola/master/sublime_syntaxes/Handlebars.sublime-syntax
+
+Haskell::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Haskell/Haskell.sublime-syntax
+
+Haskell-REPL::Keith Holman::MIT License::https://github.com/SublimeHaskell/SublimeHaskell/blob/master/LICENSE.txt::https://raw.githubusercontent.com/SublimeHaskell/SublimeHaskell/master/Syntaxes/HaskellRepl.sublime-syntax
+
+Hosts::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/Hosts.sublime-syntax
+
+HTML::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/HTML/HTML.sublime-syntax
+
+HTML-ASP::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/ASP/HTML-ASP.sublime-syntax
+
+HTML-EEx::Po Chen::MIT License::https://github.com/princemaple/elixir-sublime-syntax/blob/master/LICENSE::https://raw.githubusercontent.com/princemaple/elixir-sublime-syntax/master/HTML%20(EEx).sublime-syntax
+
+HTML-Erlang::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Erlang/HTML%20(Erlang).sublime-syntax
+
+HTML-Rails::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Rails/HTML%20(Rails).sublime-syntax
+
+HTML-Tcl::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/TCL/HTML%20(Tcl).sublime-syntax
+
+INI::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/INI.sublime-syntax
+
+Java::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Java/Java.sublime-syntax
+
+Java-Doc::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Java/JavaDoc.sublime-syntax
+
+JavaScript::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/JavaScript/JavaScript.sublime-syntax
+
+JavaScript-Babel::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/Javascript%20(Babel).sublime-syntax
+
+JavaScript-Rails::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Rails/JavaScript%20(Rails).sublime-syntax
+
+Java-Server-Pages::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Java/Java%20Server%20Pages%20(JSP).sublime-syntax
+
+Jinja2::Vincent Prouillet::MIT License::https://github.com/getzola/zola/blob/master/LICENSE::https://raw.githubusercontent.com/getzola/zola/master/sublime_syntaxes/Jinja2.sublime-syntax
+
+JSON::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/JSON/JSON.sublime-syntax
+
+Kotlin::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/Kotlin.sublime-syntax
+
+LaTeX::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/LaTeX/LaTeX.sublime-syntax
+
+LaTeX-Log::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/LaTeX/LaTeX%20Log.sublime-syntax
+
+LinkerScript::John B Wilkes III::MIT License::https://github.com/jbw3/SublimeTextLinkerSyntax/blob/master/LICENSE::https://raw.githubusercontent.com/jbw3/SublimeTextLinkerSyntax/master/LinkerScript.sublime-syntax
+
+Lisp::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Lisp/Lisp.sublime-syntax
+
+Literate-Haskell::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Haskell/Literate%20Haskell.sublime-syntax
+
+Lua::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Lua/Lua.sublime-syntax
+
+Makefile::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Makefile/Makefile.sublime-syntax
+
+Manpage::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/Manpage.sublime-syntax
+
+Markdown::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Markdown/Markdown.sublime-syntax
+
+Matlab::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Matlab/Matlab.sublime-syntax
+
+MemInfo::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/MemInfo.sublime-syntax
+
+MultiMarkdown::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Markdown/MultiMarkdown.sublime-
+
+MZN::Vincent Prouillet::MIT License::https://github.com/getzola/zola/blob/master/LICENSE::https://raw.githubusercontent.com/getzola/zola/master/sublime_syntaxes/MZN.sublime-syntax
+
+Nim::Vincent Prouillet::MIT License::https://github.com/getzola/zola/blob/master/LICENSE::https://raw.githubusercontent.com/getzola/zola/master/sublime_syntaxes/Nim.sublime-syntax
+
+Nix::Vincent Prouillet::MIT License::https://github.com/getzola/zola/blob/master/LICENSE::https://raw.githubusercontent.com/getzola/zola/master/sublime_syntaxes/nix.sublime-syntax
+
+Nonprintable::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/show-nonprintable.sublime-syntax
+
+Objective-C::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Objective-C/Objective-C.sublime-syntax
+
+Objective-C++::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Objective-C/Objective-C%2B%2B.sublime-syntax
+
+OCaml::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/OCaml/OCaml.sublime-syntax
+
+OCamllex::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/OCaml/OCamllex.sublime-syntax
+
+OCamlyacc::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/OCaml/OCamlyacc.sublime-syntax
+
+Org-Mode::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/Org%20mode.sublime-syntax
+
+Pascal::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Pascal/Pascal.sublime-syntax
+
+Passwd::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/Passwd.sublime-syntax
+
+Perl::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Perl/Perl.sublime-syntax
+
+PHP::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/PHP/PHP.sublime-syntax
+
+PHP-Source::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/PHP/PHP%20Source.sublime-syntax
+
+PowerShell::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/PowerShell.sublime-syntax
+
+Prolog::Vincent Prouillet::Mozilla Public License, v2.0::http://mozilla.org/MPL/2.0/::https://raw.githubusercontent.com/getzola/zola/master/sublime_syntaxes/Prolog.sublime-syntax
+
+Protobuf::Yuxi Evan You::MIT License::https://github.com/VcamX/protobuf-syntax-highlighting/blob/master/LICENSE::https://raw.githubusercontent.com/VcamX/protobuf-syntax-highlighting/master/Protobuf.sublime-syntax
+
+ProtobufText::MIT License::https://github.com/VcamX/protobuf-syntax-highlighting/blob/master/LICENSE::https://raw.githubusercontent.com/VcamX/protobuf-syntax-highlighting/master/ProtobufText.sublime-syntax
+
+Puppet::Peter Souter::MIT License::https://github.com/russCloak/SublimePuppet/blob/master/LICENSE::https://raw.githubusercontent.com/russCloak/SublimePuppet/master/Syntaxes/Puppet.sublime-syntax
+
+PureScript::b123400::The Unlicense::https://github.com/tellnobody1/sublime-purescript-syntax/blob/master/LICENSE::https://raw.githubusercontent.com/tellnobody1/sublime-purescript-syntax/master/purescript.sublime-syntax
+
+Python::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Python/Python.sublime-syntax
+
+R::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/R/R.sublime-syntax
+
+R-Console::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/R/R%20Console.sublime-syntax
+
+R-Documentation::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/R/Rd%20(R%20Documentation).sublime-syntax
+
+Reason::Vincent Prouillet::MIT License::https://github.com/getzola/zola/blob/master/LICENSE::https://raw.githubusercontent.com/getzola/zola/master/sublime_syntaxes/Reason.sublime-syntax
+
+Regular-Expressions::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Regular%20Expressions/RegExp.sublime-syntax
+
+Regular-Expressions-Elixir::Po Chen::MIT License::https://github.com/princemaple/elixir-sublime-syntax/blob/master/LICENSE::https://raw.githubusercontent.com/princemaple/elixir-sublime-syntax/master/Regular%20Expressions%20(Elixir).sublime-syntax
+
+Regular-Expressions-JavaScript::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/JavaScript/Regular%20Expressions%20(JavaScript).sublime-syntax
+
+Regular-Expressions-PHP::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/PHP/Regular%20Expressions%20(PHP).sublime-syntax
+
+Regular-Expressions-Python::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Python/Regular%20Expressions%20(Python).sublime-syntax
+
+Requirements-Txt::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/requirementstxt.sublime-syntax
+
+Resolv::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/Resolv.sublime-syntax
+
+Restructured-Text::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/RestructuredText/reStructuredText.sublime-syntax
+
+Robot::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/Robot.sublime-syntax
+
+Ruby::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Ruby/Ruby.sublime-syntax
+
+Ruby-Haml::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Rails/Ruby%20Haml.sublime-syntax
+
+Ruby-on-Rails::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Rails/Ruby%20on%20Rails.sublime-syntax
+
+Rust::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Rust/Rust.sublime-syntax
+
+Sass::Koen Lageveen::MIT License::https://github.com/braver/SublimeSass/blob/master/LICENSE::https://raw.githubusercontent.com/braver/SublimeSass/master/Syntaxes/Sass.sublime-syntax
+
+Scala::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Scala/Scala.sublime-syntax
+
+SCSS::Koen Lageveen::MIT License::https://github.com/braver/SublimeSass/blob/master/LICENSE::https://raw.githubusercontent.com/braver/SublimeSass/master/Syntaxes/SCSS.sublime-syntax
+
+Shell-Unix-Generic::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/ShellScript/Shell-Unix-Generic.sublime-syntax
+
+SQL::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/SQL/SQL.sublime-syntax
+
+SQL-Rails::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Rails/SQL%20(Rails).sublime-syntax
+
+Strace::Dušan Juretić::MIT License::https://github.com/djuretic/SublimeStrace/blob/master/README.md::https://raw.githubusercontent.com/djuretic/SublimeStrace/master/strace.sublime-syntax
+
+Swift::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/Swift.sublime-syntax
+
+Tcl::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/TCL/Tcl.sublime-syntax
+
+Terraform::Alex Louden::MIT License::https://github.com/alexlouden/Terraform.tmLanguage/blob/master/LICENSE::https://raw.githubusercontent.com/alexlouden/Terraform.tmLanguage/master/Terraform.sublime-syntax
+
+TeX::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/LaTeX/TeX.sublime-syntax
+
+Textile::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Textile/Textile.sublime-syntax
+
+TOML::Vincent Prouillet::MIT License::https://github.com/getzola/zola/blob/master/LICENSE::https://raw.githubusercontent.com/getzola/zola/master/sublime_syntaxes/TOML.sublime-syntax
+
+TypeScript::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/TypeScript.sublime-syntax
+
+TypeScript-React::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/TypsecriptReact.sublime-syntax
+
+Varlink::Harald Hoyer::MIT License::https://github.com/varlink/syntax-highlight-varlink/blob/master/LICENSE::https://raw.githubusercontent.com/varlink/syntax-highlight-varlink/master/varlink.sublime-syntax
+
+Verilog::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/Verilog.sublime-syntax
+
+VimL::Vincent Prouillet::MIT License::https://github.com/getzola/zola/blob/master/LICENSE::https://raw.githubusercontent.com/getzola/zola/master/sublime_syntaxes/VimL.sublime-syntax
+
+XML::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/XML/XML.sublime-syntax
+
+YAML::FichteFoll <fichtefoll2@googlemail.com>::MIT License::See header of this file::https://raw.githubusercontent.com/sublimehq/Packages/master/YAML/YAML.sublime-syntax
+
+
+
+
+
+
+
