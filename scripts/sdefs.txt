@@ -156,7 +156,7 @@ Matlab::Sublime Packages Authors::Sublime Packages License::https://github.com/s
 
 MemInfo::bat-developers::Apache License, v2.0::https://github.com/sharkdp/bat/blob/master/LICENSE-APACHE::https://raw.githubusercontent.com/sharkdp/bat/master/assets/syntaxes/MemInfo.sublime-syntax
 
-MultiMarkdown::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Markdown/MultiMarkdown.sublime-
+MultiMarkdown::Sublime Packages Authors::Sublime Packages License::https://github.com/sublimehq/Packages/blob/master/LICENSE::https://raw.githubusercontent.com/sublimehq/Packages/master/Markdown/MultiMarkdown.sublime-syntax
 
 MZN::Vincent Prouillet::MIT License::https://github.com/getzola/zola/blob/master/LICENSE::https://raw.githubusercontent.com/getzola/zola/master/sublime_syntaxes/MZN.sublime-syntax
 
@@ -194,7 +194,7 @@ Prolog::Vincent Prouillet::Mozilla Public License, v2.0::http://mozilla.org/MPL/
 
 Protobuf::Yuxi Evan You::MIT License::https://github.com/VcamX/protobuf-syntax-highlighting/blob/master/LICENSE::https://raw.githubusercontent.com/VcamX/protobuf-syntax-highlighting/master/Protobuf.sublime-syntax
 
-ProtobufText::MIT License::https://github.com/VcamX/protobuf-syntax-highlighting/blob/master/LICENSE::https://raw.githubusercontent.com/VcamX/protobuf-syntax-highlighting/master/ProtobufText.sublime-syntax
+ProtobufText::Yuxi Evan You::MIT License::https://github.com/VcamX/protobuf-syntax-highlighting/blob/master/LICENSE::https://raw.githubusercontent.com/VcamX/protobuf-syntax-highlighting/master/ProtobufText.sublime-syntax
 
 Puppet::Peter Souter::MIT License::https://github.com/russCloak/SublimePuppet/blob/master/LICENSE::https://raw.githubusercontent.com/russCloak/SublimePuppet/master/Syntaxes/Puppet.sublime-syntax
 
