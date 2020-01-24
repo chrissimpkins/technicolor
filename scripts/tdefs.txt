@@ -61,7 +61,7 @@ Base-16-Gruvbox-Light-Soft::Chris Kempson::MIT License::https://github.com/chris
 
 Base-16-Gruvbox-Light-Medium::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-gruvbox-light-medium.tmTheme
 
-Base16-Gruvbox-Light-Hard::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-gruvbox-light-hard.tmTheme
+Base-16-Gruvbox-Light-Hard::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-gruvbox-light-hard.tmTheme
 
 Base-16-Eighties::Chris Kempson::MIT License::https://github.com/chriskempson/base16-textmate/blob/master/LICENSE.md::https://raw.githubusercontent.com/chriskempson/base16-textmate/master/Themes/base16-eighties.tmTheme
 
