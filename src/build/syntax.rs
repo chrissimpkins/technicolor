@@ -34,6 +34,8 @@ pub fn build_syntaxset_from_directory(
     lines_include_newline: bool,
 ) -> TCResult<SyntaxSet> {
     let mut ssb = SyntaxSetBuilder::new();
+    // add Plain Text syntax to all syntax sets by default
+    ssb.add_plain_text_syntax();
     match ssb.add_from_folder(dir, lines_include_newline) {
         Ok(_) => Ok(ssb.build()),
         Err(err) => Err(TCError::from(err)),
@@ -61,6 +63,8 @@ where
     T: IntoIterator<Item = &'a &'a str>,
 {
     let mut ssb = SyntaxSetBuilder::new();
+    // add Plain Text syntax to all syntax sets by default
+    ssb.add_plain_text_syntax();
     for name in names.into_iter() {
         let mut filepath = PathBuf::new();
         filepath.push(dir);
@@ -122,13 +126,27 @@ mod tests {
     #[test]
     fn test_build_syntaxset_from_directory() {
         let ss = syntax::build_syntaxset_from_directory(BUILTIN_SYNTAXES_DIR, true).unwrap();
-        assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
-        assert_eq!(&ss.find_syntax_by_extension("kt").unwrap().name, "Kotlin");
+        assert_eq!(
+            &ss.find_syntax_by_extension("as").unwrap().name,
+            "ActionScript"
+        );
+        assert_eq!(&ss.find_syntax_by_extension("yml").unwrap().name, "YAML");
+        assert_eq!(
+            &ss.find_syntax_by_extension("txt").unwrap().name,
+            "Plain Text"
+        );
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
         // repeat for newline = false
         let ss = syntax::build_syntaxset_from_directory(BUILTIN_SYNTAXES_DIR, false).unwrap();
-        assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
-        assert_eq!(&ss.find_syntax_by_extension("kt").unwrap().name, "Kotlin");
+        assert_eq!(
+            &ss.find_syntax_by_extension("as").unwrap().name,
+            "ActionScript"
+        );
+        assert_eq!(&ss.find_syntax_by_extension("yml").unwrap().name, "YAML");
+        assert_eq!(
+            &ss.find_syntax_by_extension("txt").unwrap().name,
+            "Plain Text"
+        );
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
     }
 
@@ -144,13 +162,27 @@ mod tests {
     #[test]
     fn test_build_technicolor_syntaxset() {
         let ss = syntax::build_technicolor_syntaxset(true).unwrap();
-        assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
-        assert_eq!(&ss.find_syntax_by_extension("kt").unwrap().name, "Kotlin");
+        assert_eq!(
+            &ss.find_syntax_by_extension("as").unwrap().name,
+            "ActionScript"
+        );
+        assert_eq!(&ss.find_syntax_by_extension("yml").unwrap().name, "YAML");
+        assert_eq!(
+            &ss.find_syntax_by_extension("txt").unwrap().name,
+            "Plain Text"
+        );
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
         // repeat for newline = false
         let ss = syntax::build_technicolor_syntaxset(false).unwrap();
-        assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
-        assert_eq!(&ss.find_syntax_by_extension("kt").unwrap().name, "Kotlin");
+        assert_eq!(
+            &ss.find_syntax_by_extension("as").unwrap().name,
+            "ActionScript"
+        );
+        assert_eq!(&ss.find_syntax_by_extension("yml").unwrap().name, "YAML");
+        assert_eq!(
+            &ss.find_syntax_by_extension("txt").unwrap().name,
+            "Plain Text"
+        );
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
     }
 
@@ -160,6 +192,11 @@ mod tests {
         let ss = syntax::build_syntaxset_by_names(test_syntax_names, true).unwrap();
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
+        // Plain Text always included by default
+        assert_eq!(
+            &ss.find_syntax_by_extension("txt").unwrap().name,
+            "Plain Text"
+        );
         assert!(&ss.find_syntax_by_extension("kt").is_none());
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
         // repeat for newline = false
@@ -167,6 +204,11 @@ mod tests {
         let ss = syntax::build_syntaxset_by_names(test_syntax_names, false).unwrap();
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
+        // Plain Text always included by default
+        assert_eq!(
+            &ss.find_syntax_by_extension("txt").unwrap().name,
+            "Plain Text"
+        );
         assert!(&ss.find_syntax_by_extension("kt").is_none());
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
     }
@@ -188,12 +230,22 @@ mod tests {
         let ss = syntax::build_syntaxset_by_names(&test_syntax_names, true).unwrap();
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
+        // Plain Text always included by default
+        assert_eq!(
+            &ss.find_syntax_by_extension("txt").unwrap().name,
+            "Plain Text"
+        );
         assert!(&ss.find_syntax_by_extension("kt").is_none());
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
         // repeat for newline = false
         let ss = syntax::build_syntaxset_by_names(&test_syntax_names, false).unwrap();
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
+        // Plain Text always included by default
+        assert_eq!(
+            &ss.find_syntax_by_extension("txt").unwrap().name,
+            "Plain Text"
+        );
         assert!(&ss.find_syntax_by_extension("kt").is_none());
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
     }
@@ -216,12 +268,22 @@ mod tests {
         let ss = syntax::build_syntaxset_by_names(test_syntax_names.keys(), true).unwrap();
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
+        // Plain Text always included by default
+        assert_eq!(
+            &ss.find_syntax_by_extension("txt").unwrap().name,
+            "Plain Text"
+        );
         assert!(&ss.find_syntax_by_extension("kt").is_none());
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
         // repeat for newline = false
         let ss = syntax::build_syntaxset_by_names(test_syntax_names.keys(), false).unwrap();
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
+        // Plain Text always included by default
+        assert_eq!(
+            &ss.find_syntax_by_extension("txt").unwrap().name,
+            "Plain Text"
+        );
         assert!(&ss.find_syntax_by_extension("kt").is_none());
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
     }
