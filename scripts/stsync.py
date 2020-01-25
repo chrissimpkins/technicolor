@@ -71,7 +71,7 @@ class DefinitionCollection(object):
                 ):  # = comments in definition files
                     parsed_list = line.strip().split("::")
                     if len(parsed_list) != 5:
-                        sys.stderr.write(f"[PARSE FAIL]: --> {parsed_list}\n")
+                        sys.stderr.write(f"[SYNTAX PARSE FAIL]: --> {parsed_list}\n")
                         sys.exit(1)
                     syntax = Syntax(
                         parsed_list[0],
@@ -89,7 +89,9 @@ class DefinitionCollection(object):
                     not line.startswith("#") and len(line.strip()) > 0
                 ):  # = comments in definition files
                     parsed_list = line.strip().split("::")
-                    assert len(parsed_list) == 5
+                    if len(parsed_list) != 5:
+                        sys.stderr.write(f"[THEME PARSE FAIL]: --> {parsed_list}\n")
+                        sys.exit(1)
                     theme = Theme(
                         parsed_list[0],
                         parsed_list[1],
@@ -177,10 +179,43 @@ class DefinitionCollection(object):
 
 
 def main():
+    parser = argparse.ArgumentParser(
+        description="A technicolor project utility for syntax and theme synchronization"
+    )
+    parser.add_argument(
+        "-s",
+        "--syntax",
+        action="store_true",
+        default=False,
+        help="Pull syntaxes only",
+    )
+    parser.add_argument(
+        "-t",
+        "--theme",
+        action="store_true",
+        default=False,
+        help="Pull themes only",
+    )
+    args = parser.parse_args(sys.argv[1:])
+    
+    pull_themes = False
+    pull_syntaxes = False
+
+    if not (args.theme or args.syntax):
+        pull_themes = True
+        pull_syntaxes = True
+    elif args.theme:
+        pull_themes = True
+    elif args.syntax:
+        pull_syntaxes = True
+
     collection = DefinitionCollection()
     collection.parse_definition_files()
-    collection.write_syntax_files()
-    collection.write_theme_files()
+
+    if args.syntax:
+        collection.write_syntax_files()
+    elif args.theme:
+        collection.write_theme_files()
 
 
 if __name__ == "__main__":
