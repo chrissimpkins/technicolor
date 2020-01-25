@@ -37,8 +37,19 @@ lint-themes:
 	plutil $(THEMES_DIR)/*.tmTheme
 	xmllint --valid --noout $(THEMES_DIR)/*.tmTheme
 
+# ===============================
+# Source formatting targets
+# ===============================
+fmt: fmt-python fmt-rs
+
+fmt-python:
+	black scripts/*.py
+
+fmt-rs:
+	cargo fmt
 
 .PHONY: \
 dump-syntax-theme-binary \
+fmt fmt-python fmt-rs \
 lint lint-python lint-syntaxes lint-themes \
 update-syntaxes update-themes update-syntaxes-themes
