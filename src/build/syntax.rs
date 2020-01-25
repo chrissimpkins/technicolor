@@ -28,7 +28,7 @@ use crate::paths::BUILTIN_SYNTAXES_DIR;
 //
 // ======================================
 
-pub fn build_syntaxset_from_directory(
+pub fn build_as_syntect_syntaxset_from_directory(
     dir: &str,
     lines_include_newline: bool,
 ) -> TCResult<SyntaxSet> {
@@ -41,9 +41,12 @@ pub fn build_syntaxset_from_directory(
     }
 }
 
-// TODO: refactor approach to newlines
-pub fn build_technicolor_syntaxset(_lines_include_newline: bool) -> SyntaxSet {
+pub fn build_all_as_syntect_syntaxset_with_newlines() -> SyntaxSet {
     from_binary(include_bytes!("../../assets/syntaxes-nl.pack"))
+}
+
+pub fn build_all_as_syntect_syntaxset_without_newlines() -> SyntaxSet {
+    from_binary(include_bytes!("../../assets/syntaxes-nonl.pack"))
 }
 
 pub fn build_syntaxset_by_names<'a, T>(names: T, lines_include_newline: bool) -> TCResult<SyntaxSet>
@@ -125,7 +128,8 @@ mod tests {
 
     #[test]
     fn test_build_syntaxset_from_directory() {
-        let ss = syntax::build_syntaxset_from_directory(BUILTIN_SYNTAXES_DIR, true).unwrap();
+        let ss =
+            syntax::build_as_syntect_syntaxset_from_directory(BUILTIN_SYNTAXES_DIR, true).unwrap();
         assert_eq!(
             &ss.find_syntax_by_extension("as").unwrap().name,
             "ActionScript"
@@ -137,7 +141,8 @@ mod tests {
         );
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
         // repeat for newline = false
-        let ss = syntax::build_syntaxset_from_directory(BUILTIN_SYNTAXES_DIR, false).unwrap();
+        let ss =
+            syntax::build_as_syntect_syntaxset_from_directory(BUILTIN_SYNTAXES_DIR, false).unwrap();
         assert_eq!(
             &ss.find_syntax_by_extension("as").unwrap().name,
             "ActionScript"
@@ -152,16 +157,16 @@ mod tests {
 
     #[test]
     fn test_build_syntaxset_from_directory_fail_bad_dirpath() {
-        let ss = syntax::build_syntaxset_from_directory("bogusdir", true);
+        let ss = syntax::build_as_syntect_syntaxset_from_directory("bogusdir", true);
         assert!(ss.is_err());
         // repeat for newline = false
-        let ss = syntax::build_syntaxset_from_directory("bogusdir", false);
+        let ss = syntax::build_as_syntect_syntaxset_from_directory("bogusdir", false);
         assert!(ss.is_err());
     }
 
     #[test]
     fn test_build_technicolor_syntaxset() {
-        let ss = syntax::build_technicolor_syntaxset(true);
+        let ss = syntax::build_all_as_syntect_syntaxset_with_newlines();
         assert_eq!(
             &ss.find_syntax_by_extension("as").unwrap().name,
             "ActionScript"
@@ -173,7 +178,7 @@ mod tests {
         );
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
         // repeat for newline = false
-        let ss = syntax::build_technicolor_syntaxset(false);
+        let ss = syntax::build_all_as_syntect_syntaxset_with_newlines();
         assert_eq!(
             &ss.find_syntax_by_extension("as").unwrap().name,
             "ActionScript"
