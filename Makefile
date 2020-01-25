@@ -4,8 +4,11 @@ SYNTAXES_DIR=assets/syntaxes
 # ===============================
 # Syntax and theme update targets
 # ===============================
-sync: update-syntaxes-themes
+sync: update-syntaxes update-themes
 	cargo run --bin cachebuild
+
+sync-mp:
+	$(MAKE) -j2 --output-sync sync
 
 update-syntaxes:
 	cd scripts && python3 stsync.py --syntax
