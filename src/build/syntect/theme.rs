@@ -30,7 +30,7 @@ pub fn build_themeset_from_directory(dir: &str) -> TCResult<ThemeSet> {
 }
 
 pub fn build_technicolor_themeset() -> ThemeSet {
-    from_binary(include_bytes!("../../assets/themes.pack"))
+    from_binary(include_bytes!("../../../assets/themes.pack"))
 }
 
 pub fn build_themeset_by_names<'a, I>(names: I) -> TCResult<ThemeSet>

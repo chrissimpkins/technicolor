@@ -14,7 +14,7 @@
 use syntect::dumps::dump_to_file;
 use syntect::highlighting::ThemeSet;
 
-use crate::build::theme::build_themeset_by_names;
+use crate::build::syntect::theme;
 use crate::errors::TCResult;
 
 pub fn dump_themeset_to_binary(ts: &ThemeSet, filepath: &str) -> TCResult<()> {
@@ -28,7 +28,7 @@ pub fn dump_themeset_to_binary_by_names<'a, T>(names: T, filepath: &str) -> TCRe
 where
     T: IntoIterator<Item = &'a &'a str>,
 {
-    match build_themeset_by_names(names) {
+    match theme::build_themeset_by_names(names) {
         Ok(n) => {
             dump_themeset_to_binary(&n, filepath)?;
             Ok(())
@@ -47,13 +47,13 @@ mod tests {
     use syntect::highlighting::ThemeSet;
 
     use super::*;
-    use crate::build;
+    use crate::build::syntect::theme;
 
     #[test]
     fn test_dump_themeset_to_binary() {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("themes.bin");
-        let ts = build::theme::build_technicolor_themeset();
+        let ts = theme::build_technicolor_themeset();
         dump_themeset_to_binary(&ts, file_path.to_str().unwrap()).unwrap();
         let ts_in: ThemeSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());

@@ -42,11 +42,11 @@ pub fn build_as_syntect_syntaxset_from_directory(
 }
 
 pub fn build_all_as_syntect_syntaxset_with_newlines() -> SyntaxSet {
-    from_binary(include_bytes!("../../assets/syntaxes-nl.pack"))
+    from_binary(include_bytes!("../../../assets/syntaxes-nl.pack"))
 }
 
 pub fn build_all_as_syntect_syntaxset_without_newlines() -> SyntaxSet {
-    from_binary(include_bytes!("../../assets/syntaxes-nonl.pack"))
+    from_binary(include_bytes!("../../../assets/syntaxes-nonl.pack"))
 }
 
 pub fn build_syntaxset_by_names<'a, T>(names: T, lines_include_newline: bool) -> TCResult<SyntaxSet>

@@ -14,7 +14,7 @@
 use syntect::dumps::dump_to_file;
 use syntect::parsing::SyntaxSet;
 
-use crate::build::syntax::build_syntaxset_by_names;
+use crate::build::syntect::syntax;
 use crate::errors::TCResult;
 
 pub fn dump_syntaxset_to_binary(ss: &SyntaxSet, filepath: &str) -> TCResult<()> {
@@ -32,7 +32,7 @@ pub fn dump_syntaxset_to_binary_by_names<'a, T>(
 where
     T: IntoIterator<Item = &'a &'a str>,
 {
-    match build_syntaxset_by_names(names, lines_include_newline) {
+    match syntax::build_syntaxset_by_names(names, lines_include_newline) {
         Ok(n) => {
             dump_syntaxset_to_binary(&n, filepath)?;
             Ok(())
@@ -52,13 +52,13 @@ mod tests {
     use syntect::parsing::SyntaxSet;
 
     use super::*;
-    use crate::build;
+    use crate::build::syntect::syntax;
 
     #[test]
     fn test_dump_syntaxset_to_binary() {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("syntaxes.bin");
-        let ss = build::syntax::build_all_as_syntect_syntaxset_with_newlines();
+        let ss = syntax::build_all_as_syntect_syntaxset_with_newlines();
         dump_syntaxset_to_binary(&ss, &file_path.to_str().unwrap()).unwrap();
         let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
@@ -68,7 +68,7 @@ mod tests {
         fs::remove_file(&file_path).unwrap();
 
         // run again newline parameter = false
-        let ss = build::syntax::build_all_as_syntect_syntaxset_with_newlines();
+        let ss = syntax::build_all_as_syntect_syntaxset_with_newlines();
         dump_syntaxset_to_binary(&ss, &file_path.to_str().unwrap()).unwrap();
         let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
