@@ -4,6 +4,9 @@ SYNTAXES_DIR=assets/syntaxes
 # ===============================
 # Syntax and theme update targets
 # ===============================
+sync: update-syntaxes-themes
+	cargo run --bin cachebuild
+
 update-syntaxes:
 	cd scripts && python3 stsync.py --syntax
 
@@ -12,10 +15,8 @@ update-themes:
 
 update-syntaxes-themes: update-syntaxes update-themes
 
-# ===============================
 # Binary cache dump targets
-# ===============================
-
+# (eliminates pull step before that occurs in `sync` target)
 dump-syntax-theme-binary:
 	cargo run --bin cachebuild
 
@@ -47,6 +48,12 @@ fmt-python:
 
 fmt-rs:
 	cargo fmt
+
+# ===============================
+# Test targets
+# ===============================
+test: fmt-rs
+	cargo test
 
 .PHONY: \
 dump-syntax-theme-binary \
