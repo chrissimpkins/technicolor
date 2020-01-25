@@ -1,6 +1,9 @@
 THEMES_DIR=assets/themes
 SYNTAXES_DIR=assets/syntaxes
 
+# ===============================
+# Syntax and theme update targets
+# ===============================
 update-syntaxes:
 	cd scripts && python3 stsync.py --syntax
 
@@ -9,10 +12,21 @@ update-themes:
 
 update-syntaxes-themes: update-syntaxes update-themes
 
+# ===============================
+# Binary cache dump targets
+# ===============================
+
 dump-syntax-theme-binary:
 	cargo run --bin cachebuild
 
-lint: lint-themes lint-syntaxes
+# ===============================
+# Source linting targets
+# ===============================
+
+lint: lint-python lint-themes lint-syntaxes
+
+lint-python:
+	flake8 --ignore=E501,W50 scripts/*.py
 
 lint-syntaxes:
 	@echo "Linting $(SYNTAXES_DIR) directory contents..."
@@ -24,4 +38,7 @@ lint-themes:
 	xmllint --valid --noout $(THEMES_DIR)/*.tmTheme
 
 
-.PHONY: dump-syntax-theme-binary lint lint-syntaxes lint-themes update-syntaxes update-themes update-syntaxes-themes
+.PHONY: \
+dump-syntax-theme-binary \
+lint lint-python lint-syntaxes lint-themes \
+update-syntaxes update-themes update-syntaxes-themes
