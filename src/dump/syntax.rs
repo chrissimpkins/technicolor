@@ -58,7 +58,7 @@ mod tests {
     fn test_dump_syntaxset_to_binary() {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("syntaxes.bin");
-        let ss = build::syntax::build_technicolor_syntaxset(true).unwrap();
+        let ss = build::syntax::build_technicolor_syntaxset(true);
         dump::syntax::dump_syntaxset_to_binary(&ss, &file_path.to_str().unwrap()).unwrap();
         let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
@@ -68,7 +68,7 @@ mod tests {
         fs::remove_file(&file_path).unwrap();
 
         // run again newline parameter = false
-        let ss = build::syntax::build_technicolor_syntaxset(false).unwrap();
+        let ss = build::syntax::build_technicolor_syntaxset(false);
         dump::syntax::dump_syntaxset_to_binary(&ss, &file_path.to_str().unwrap()).unwrap();
         let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());

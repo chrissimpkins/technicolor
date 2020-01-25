@@ -53,7 +53,7 @@ mod tests {
     fn test_dump_themeset_to_binary() {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("themes.bin");
-        let ts = build::theme::build_technicolor_themeset().unwrap();
+        let ts = build::theme::build_technicolor_themeset();
         dump::theme::dump_themeset_to_binary(&ts, file_path.to_str().unwrap()).unwrap();
         let ts_in: ThemeSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());

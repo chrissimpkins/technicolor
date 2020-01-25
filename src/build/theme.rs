@@ -13,6 +13,7 @@
 // limitations under the License.
 use std::path::PathBuf;
 
+use syntect::dumps::from_binary;
 use syntect::highlighting::ThemeSet;
 
 use crate::errors::TCResult;
@@ -28,8 +29,8 @@ pub fn build_themeset_from_directory(dir: &str) -> TCResult<ThemeSet> {
     Ok(ts)
 }
 
-pub fn build_technicolor_themeset() -> TCResult<ThemeSet> {
-    build_themeset_from_directory(BUILTIN_THEMES_DIR)
+pub fn build_technicolor_themeset() -> ThemeSet {
+    from_binary(include_bytes!("../../assets/themes.pack"))
 }
 
 pub fn build_themeset_by_names<'a, I>(names: I) -> TCResult<ThemeSet>
@@ -77,7 +78,7 @@ mod tests {
 
     #[test]
     fn test_build_technicolor_themeset() {
-        let ts = theme::build_technicolor_themeset().unwrap();
+        let ts = theme::build_technicolor_themeset();
         let all_themes: Vec<&str> = ts.themes.keys().map(|x| &**x).collect();
         assert!(all_themes.contains(&"Dracula"));
     }

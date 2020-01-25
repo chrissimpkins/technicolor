@@ -15,6 +15,7 @@ use std::fs::File;
 use std::io::Read;
 use std::path::{Path, PathBuf};
 
+use syntect::dumps::from_binary;
 use syntect::parsing::{SyntaxDefinition, SyntaxSet, SyntaxSetBuilder};
 use syntect::LoadingError;
 
@@ -40,8 +41,9 @@ pub fn build_syntaxset_from_directory(
     }
 }
 
-pub fn build_technicolor_syntaxset(lines_include_newline: bool) -> TCResult<SyntaxSet> {
-    build_syntaxset_from_directory(BUILTIN_SYNTAXES_DIR, lines_include_newline)
+// TODO: refactor approach to newlines
+pub fn build_technicolor_syntaxset(_lines_include_newline: bool) -> SyntaxSet {
+    from_binary(include_bytes!("../../assets/syntaxes-nl.pack"))
 }
 
 pub fn build_syntaxset_by_names<'a, T>(names: T, lines_include_newline: bool) -> TCResult<SyntaxSet>
@@ -159,7 +161,7 @@ mod tests {
 
     #[test]
     fn test_build_technicolor_syntaxset() {
-        let ss = syntax::build_technicolor_syntaxset(true).unwrap();
+        let ss = syntax::build_technicolor_syntaxset(true);
         assert_eq!(
             &ss.find_syntax_by_extension("as").unwrap().name,
             "ActionScript"
@@ -171,7 +173,7 @@ mod tests {
         );
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
         // repeat for newline = false
-        let ss = syntax::build_technicolor_syntaxset(false).unwrap();
+        let ss = syntax::build_technicolor_syntaxset(false);
         assert_eq!(
             &ss.find_syntax_by_extension("as").unwrap().name,
             "ActionScript"
