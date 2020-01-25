@@ -101,7 +101,6 @@ pub fn load_syntax_file(p: &Path, lines_include_newline: bool) -> TCResult<Synta
     .map_err(|e| LoadingError::ParseSyntax(e, Some(format!("{}", p.display()))))?)
 }
 
-// TODO: add no newlines unit tests
 #[cfg(test)]
 mod tests {
     use std::collections::HashMap;
@@ -167,7 +166,7 @@ mod tests {
     }
 
     #[test]
-    fn test_build_full_syntaxset() {
+    fn test_build_full_syntaxset_with_newlines() {
         let ss = build_full_syntaxset_with_newlines();
         assert_eq!(
             &ss.find_syntax_by_extension("as").unwrap().name,
@@ -179,8 +178,11 @@ mod tests {
             "Plain Text"
         );
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
-        // repeat for newline = false
-        let ss = build_full_syntaxset_with_newlines();
+    }
+
+    #[test]
+    fn test_build_full_syntaxset_without_newlines() {
+        let ss = build_full_syntaxset_without_newlines();
         assert_eq!(
             &ss.find_syntax_by_extension("as").unwrap().name,
             "ActionScript"
