@@ -25,7 +25,11 @@ fn build_syntaxes_cache_with_newlines() {
     let mut ssb = SyntaxSetBuilder::new();
     // add Plain Text syntax to all syntax sets by default
     ssb.add_plain_text_syntax();
-    ssb.add_from_folder(BUILTIN_SYNTAXES_DIR, true).unwrap();
+    ssb.add_from_folder(BUILTIN_SYNTAXES_DIR, true)
+        .unwrap_or_else(|error| {
+            eprintln!("Error during syntaxes with newline cache build: {}", error);
+            std::process::exit(1);
+        });
     let ss = ssb.build();
     match dump_to_file(&ss, SYNTAX_CACHE_PATH_NEWLINES) {
         Ok(_) => println!(
@@ -40,7 +44,14 @@ fn build_syntaxes_cache_without_newlines() {
     let mut ssb = SyntaxSetBuilder::new();
     // add Plain Text syntax to all syntax sets by default
     ssb.add_plain_text_syntax();
-    ssb.add_from_folder(BUILTIN_SYNTAXES_DIR, false).unwrap();
+    ssb.add_from_folder(BUILTIN_SYNTAXES_DIR, false)
+        .unwrap_or_else(|error| {
+            eprintln!(
+                "Error during syntaxes without newline cache build: {}",
+                error
+            );
+            std::process::exit(1);
+        });
     let ss = ssb.build();
     match dump_to_file(&ss, SYNTAX_CACHE_PATH_NO_NEWLINES) {
         Ok(_) => println!(
@@ -53,7 +64,11 @@ fn build_syntaxes_cache_without_newlines() {
 
 fn build_themes_cache() {
     let mut ts = ThemeSet::new();
-    ts.add_from_folder(BUILTIN_THEMES_DIR).unwrap();
+    ts.add_from_folder(BUILTIN_THEMES_DIR)
+        .unwrap_or_else(|error| {
+            eprintln!("Error during themes cache build: {}", error);
+            std::process::exit(1);
+        });
     match dump_to_file(&ts, THEME_CACHE_PATH) {
         Ok(_) => println!("Successfully dumped themes cache to {}", THEME_CACHE_PATH),
         Err(e) => panic!("Error during themes cache dump: {}", e),
