@@ -51,15 +51,15 @@ mod tests {
     use syntect::dumps::from_dump_file;
     use syntect::parsing::SyntaxSet;
 
+    use super::*;
     use crate::build;
-    use crate::dump;
 
     #[test]
     fn test_dump_syntaxset_to_binary() {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("syntaxes.bin");
         let ss = build::syntax::build_all_as_syntect_syntaxset_with_newlines();
-        dump::syntax::dump_syntaxset_to_binary(&ss, &file_path.to_str().unwrap()).unwrap();
+        dump_syntaxset_to_binary(&ss, &file_path.to_str().unwrap()).unwrap();
         let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
         assert_eq!(&ss_in.find_syntax_by_extension("ini").unwrap().name, "INI");
@@ -69,7 +69,7 @@ mod tests {
 
         // run again newline parameter = false
         let ss = build::syntax::build_all_as_syntect_syntaxset_with_newlines();
-        dump::syntax::dump_syntaxset_to_binary(&ss, &file_path.to_str().unwrap()).unwrap();
+        dump_syntaxset_to_binary(&ss, &file_path.to_str().unwrap()).unwrap();
         let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
         assert_eq!(&ss_in.find_syntax_by_extension("ini").unwrap().name, "INI");
@@ -82,8 +82,7 @@ mod tests {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("syntaxes.bin");
         let names = vec![&"INI", &"Kotlin"];
-        dump::syntax::dump_syntaxset_to_binary_by_names(names, &file_path.to_str().unwrap(), true)
-            .unwrap();
+        dump_syntaxset_to_binary_by_names(names, &file_path.to_str().unwrap(), true).unwrap();
         let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
         assert_eq!(&ss_in.find_syntax_by_extension("ini").unwrap().name, "INI");
@@ -98,8 +97,7 @@ mod tests {
 
         // run again with newline parameter = false
         let names = vec![&"INI", &"Kotlin"];
-        dump::syntax::dump_syntaxset_to_binary_by_names(names, &file_path.to_str().unwrap(), false)
-            .unwrap();
+        dump_syntaxset_to_binary_by_names(names, &file_path.to_str().unwrap(), false).unwrap();
         let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
         assert_eq!(&ss_in.find_syntax_by_extension("ini").unwrap().name, "INI");
@@ -118,8 +116,7 @@ mod tests {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("syntaxes.bin");
         let names = ["INI", "Kotlin"];
-        dump::syntax::dump_syntaxset_to_binary_by_names(&names, &file_path.to_str().unwrap(), true)
-            .unwrap();
+        dump_syntaxset_to_binary_by_names(&names, &file_path.to_str().unwrap(), true).unwrap();
         let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
         assert_eq!(&ss_in.find_syntax_by_extension("ini").unwrap().name, "INI");
@@ -134,12 +131,7 @@ mod tests {
         fs::remove_file(&file_path).unwrap();
 
         // run again with newline parameter = false
-        dump::syntax::dump_syntaxset_to_binary_by_names(
-            &names,
-            &file_path.to_str().unwrap(),
-            false,
-        )
-        .unwrap();
+        dump_syntaxset_to_binary_by_names(&names, &file_path.to_str().unwrap(), false).unwrap();
         let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
         assert_eq!(&ss_in.find_syntax_by_extension("ini").unwrap().name, "INI");
@@ -162,12 +154,7 @@ mod tests {
 
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("syntaxes.bin");
-        dump::syntax::dump_syntaxset_to_binary_by_names(
-            names.keys(),
-            file_path.to_str().unwrap(),
-            true,
-        )
-        .unwrap();
+        dump_syntaxset_to_binary_by_names(names.keys(), file_path.to_str().unwrap(), true).unwrap();
         let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
         assert_eq!(&ss_in.find_syntax_by_extension("ini").unwrap().name, "INI");
@@ -182,12 +169,8 @@ mod tests {
         fs::remove_file(&file_path).unwrap();
 
         // run again with newline parameter = false
-        dump::syntax::dump_syntaxset_to_binary_by_names(
-            names.keys(),
-            file_path.to_str().unwrap(),
-            false,
-        )
-        .unwrap();
+        dump_syntaxset_to_binary_by_names(names.keys(), file_path.to_str().unwrap(), false)
+            .unwrap();
         let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
         assert_eq!(&ss_in.find_syntax_by_extension("ini").unwrap().name, "INI");
@@ -207,20 +190,12 @@ mod tests {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("syntaxes.bin");
         let names = ["Bogus", "Kotlin"];
-        let res = dump::syntax::dump_syntaxset_to_binary_by_names(
-            &names,
-            &file_path.to_str().unwrap(),
-            true,
-        );
+        let res = dump_syntaxset_to_binary_by_names(&names, &file_path.to_str().unwrap(), true);
         assert!(res.is_err());
         assert_eq!(file_path.is_file(), false);
 
         // repeat with newline parameter = false
-        let res = dump::syntax::dump_syntaxset_to_binary_by_names(
-            &names,
-            &file_path.to_str().unwrap(),
-            false,
-        );
+        let res = dump_syntaxset_to_binary_by_names(&names, &file_path.to_str().unwrap(), false);
         assert!(res.is_err());
         assert_eq!(file_path.is_file(), false);
 

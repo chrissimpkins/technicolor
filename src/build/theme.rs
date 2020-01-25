@@ -59,26 +59,26 @@ where
 
 #[cfg(test)]
 mod tests {
-    use crate::build::theme;
+    use super::*;
     use crate::paths::BUILTIN_THEMES_DIR;
     use std::collections::HashMap;
 
     #[test]
     fn test_build_themeset_from_directory() {
-        let ts = theme::build_themeset_from_directory(BUILTIN_THEMES_DIR).unwrap();
+        let ts = build_themeset_from_directory(BUILTIN_THEMES_DIR).unwrap();
         let all_themes: Vec<&str> = ts.themes.keys().map(|x| &**x).collect();
         assert!(all_themes.contains(&"Dracula"));
     }
 
     #[test]
     fn test_build_themeset_from_directory_fail_bad_dirpath() {
-        let ts = theme::build_themeset_from_directory("bogusdir");
+        let ts = build_themeset_from_directory("bogusdir");
         assert!(ts.is_err());
     }
 
     #[test]
     fn test_build_technicolor_themeset() {
-        let ts = theme::build_technicolor_themeset();
+        let ts = build_technicolor_themeset();
         let all_themes: Vec<&str> = ts.themes.keys().map(|x| &**x).collect();
         assert!(all_themes.contains(&"Dracula"));
     }
@@ -87,8 +87,7 @@ mod tests {
     fn test_build_themeset_from_directory_by_names() {
         let test_theme_names = vec![&"Dracula", &"Ayu-Light"];
         let ts =
-            theme::build_themeset_by_names_from_directory(test_theme_names, BUILTIN_THEMES_DIR)
-                .unwrap();
+            build_themeset_by_names_from_directory(test_theme_names, BUILTIN_THEMES_DIR).unwrap();
         let all_themes: Vec<&str> = ts.themes.keys().map(|x| &**x).collect();
         assert!(all_themes.contains(&"Dracula")); // expected
         assert!(all_themes.contains(&"Ayu-Light")); // expected
@@ -98,7 +97,7 @@ mod tests {
     #[test]
     fn test_build_themeset_by_names_with_vector() {
         let test_theme_names = vec![&"Dracula", &"Ayu-Light"];
-        let ts = theme::build_themeset_by_names(test_theme_names).unwrap();
+        let ts = build_themeset_by_names(test_theme_names).unwrap();
         let all_themes: Vec<&str> = ts.themes.keys().map(|x| &**x).collect();
         assert!(all_themes.contains(&"Dracula")); // expected
         assert!(all_themes.contains(&"Ayu-Light")); // expected
@@ -108,7 +107,7 @@ mod tests {
     #[test]
     fn test_build_themeset_by_names_with_array() {
         let test_theme_names = ["Dracula", "Ayu-Light"];
-        let ts = theme::build_themeset_by_names(&test_theme_names).unwrap();
+        let ts = build_themeset_by_names(&test_theme_names).unwrap();
         let all_themes: Vec<&str> = ts.themes.keys().map(|x| &**x).collect();
         assert!(all_themes.contains(&"Dracula")); // expected
         assert!(all_themes.contains(&"Ayu-Light")); // expected
@@ -120,7 +119,7 @@ mod tests {
         let mut test_theme_names = HashMap::new();
         test_theme_names.insert("Dracula", 1);
         test_theme_names.insert("Ayu-Light", 2);
-        let ts = theme::build_themeset_by_names(test_theme_names.keys()).unwrap();
+        let ts = build_themeset_by_names(test_theme_names.keys()).unwrap();
         let all_themes: Vec<&str> = ts.themes.keys().map(|x| &**x).collect();
         assert!(all_themes.contains(&"Dracula")); // expected
         assert!(all_themes.contains(&"Ayu-Light")); // expected
@@ -130,7 +129,7 @@ mod tests {
     #[test]
     fn test_build_themeset_by_names_with_vector_fail_bad_name() {
         let test_theme_names = vec![&"Bogus"];
-        let ts = theme::build_themeset_by_names(test_theme_names);
+        let ts = build_themeset_by_names(test_theme_names);
         assert!(ts.is_err());
     }
 }

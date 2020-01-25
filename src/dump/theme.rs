@@ -46,15 +46,15 @@ mod tests {
     use syntect::dumps::from_dump_file;
     use syntect::highlighting::ThemeSet;
 
+    use super::*;
     use crate::build;
-    use crate::dump;
 
     #[test]
     fn test_dump_themeset_to_binary() {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("themes.bin");
         let ts = build::theme::build_technicolor_themeset();
-        dump::theme::dump_themeset_to_binary(&ts, file_path.to_str().unwrap()).unwrap();
+        dump_themeset_to_binary(&ts, file_path.to_str().unwrap()).unwrap();
         let ts_in: ThemeSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
         let all_themes: Vec<&str> = ts_in.themes.keys().map(|x| &**x).collect();
@@ -70,7 +70,7 @@ mod tests {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("themes.bin");
         let names = vec![&"Ayu-Light", &"Dracula"];
-        dump::theme::dump_themeset_to_binary_by_names(names, file_path.to_str().unwrap()).unwrap();
+        dump_themeset_to_binary_by_names(names, file_path.to_str().unwrap()).unwrap();
         let ts_in: ThemeSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
         let all_themes: Vec<&str> = ts_in.themes.keys().map(|x| &**x).collect();
@@ -87,7 +87,7 @@ mod tests {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("themes.bin");
         let names = ["Ayu-Light", "Dracula"];
-        dump::theme::dump_themeset_to_binary_by_names(&names, file_path.to_str().unwrap()).unwrap();
+        dump_themeset_to_binary_by_names(&names, file_path.to_str().unwrap()).unwrap();
         let ts_in: ThemeSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
         let all_themes: Vec<&str> = ts_in.themes.keys().map(|x| &**x).collect();
@@ -106,8 +106,7 @@ mod tests {
         let mut names = HashMap::new();
         names.insert("Dracula", 1);
         names.insert("Ayu-Light", 2);
-        dump::theme::dump_themeset_to_binary_by_names(names.keys(), file_path.to_str().unwrap())
-            .unwrap();
+        dump_themeset_to_binary_by_names(names.keys(), file_path.to_str().unwrap()).unwrap();
         let ts_in: ThemeSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
         let all_themes: Vec<&str> = ts_in.themes.keys().map(|x| &**x).collect();
@@ -124,7 +123,7 @@ mod tests {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("themes.bin");
         let names = vec![&"Bogus", &"Dracula"];
-        let res = dump::theme::dump_themeset_to_binary_by_names(names, file_path.to_str().unwrap());
+        let res = dump_themeset_to_binary_by_names(names, file_path.to_str().unwrap());
         assert!(res.is_err());
         // cleanup
         tmpdir.close().unwrap();
