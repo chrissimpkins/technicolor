@@ -183,21 +183,13 @@ def main():
         description="A technicolor project utility for syntax and theme synchronization"
     )
     parser.add_argument(
-        "-s",
-        "--syntax",
-        action="store_true",
-        default=False,
-        help="Pull syntaxes only",
+        "-s", "--syntax", action="store_true", default=False, help="Pull syntaxes only",
     )
     parser.add_argument(
-        "-t",
-        "--theme",
-        action="store_true",
-        default=False,
-        help="Pull themes only",
+        "-t", "--theme", action="store_true", default=False, help="Pull themes only",
     )
     args = parser.parse_args(sys.argv[1:])
-    
+
     pull_themes = False
     pull_syntaxes = False
 
@@ -212,9 +204,9 @@ def main():
     collection = DefinitionCollection()
     collection.parse_definition_files()
 
-    if args.syntax:
+    if pull_syntaxes:
         collection.write_syntax_files()
-    elif args.theme:
+    elif pull_themes:
         collection.write_theme_files()
 
 
