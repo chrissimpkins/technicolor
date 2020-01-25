@@ -1,8 +1,16 @@
 THEMES_DIR=assets/themes
 SYNTAXES_DIR=assets/syntaxes
 
-update-syntax-theme:
-	cd scripts && python3 stsync.py
+update-syntaxes:
+	cd scripts && python3 stsync.py --syntax
+
+update-themes:
+	cd scripts && python3 stsync.py --theme
+
+update-syntaxes-themes: update-syntaxes update-themes
+
+dump-syntax-theme-binary:
+	cargo run --bin cachebuild
 
 lint: lint-themes lint-syntaxes
 
@@ -16,4 +24,4 @@ lint-themes:
 	xmllint --valid --noout $(THEMES_DIR)/*.tmTheme
 
 
-.PHONY: lint lint-syntaxes lint-themes update-syntax-theme
+.PHONY: dump-syntax-theme-binary lint lint-syntaxes lint-themes update-syntaxes update-themes update-syntaxes-themes
