@@ -32,7 +32,7 @@ pub fn dump_syntaxset_to_binary_by_names<'a, T>(
 where
     T: IntoIterator<Item = &'a &'a str>,
 {
-    match syntax::build_syntaxset_by_names(names, lines_include_newline) {
+    match syntax::build_syntaxset_with_names(names, lines_include_newline) {
         Ok(n) => {
             dump_syntaxset_to_binary(&n, filepath)?;
             Ok(())
@@ -58,7 +58,7 @@ mod tests {
     fn test_dump_syntaxset_to_binary() {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("syntaxes.bin");
-        let ss = syntax::build_all_as_syntect_syntaxset_with_newlines();
+        let ss = syntax::build_full_syntaxset_with_newlines();
         dump_syntaxset_to_binary(&ss, &file_path.to_str().unwrap()).unwrap();
         let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
@@ -68,7 +68,7 @@ mod tests {
         fs::remove_file(&file_path).unwrap();
 
         // run again newline parameter = false
-        let ss = syntax::build_all_as_syntect_syntaxset_with_newlines();
+        let ss = syntax::build_full_syntaxset_with_newlines();
         dump_syntaxset_to_binary(&ss, &file_path.to_str().unwrap()).unwrap();
         let ss_in: SyntaxSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());

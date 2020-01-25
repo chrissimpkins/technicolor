@@ -28,7 +28,7 @@ use crate::paths::BUILTIN_SYNTAXES_DIR;
 //
 // ======================================
 
-pub fn build_as_syntect_syntaxset_from_directory(
+pub fn build_syntaxset_from_directory(
     dir: &str,
     lines_include_newline: bool,
 ) -> TCResult<SyntaxSet> {
@@ -41,23 +41,26 @@ pub fn build_as_syntect_syntaxset_from_directory(
     }
 }
 
-pub fn build_all_as_syntect_syntaxset_with_newlines() -> SyntaxSet {
+pub fn build_full_syntaxset_with_newlines() -> SyntaxSet {
     from_binary(include_bytes!("../../../assets/syntaxes-nl.pack"))
 }
 
-pub fn build_all_as_syntect_syntaxset_without_newlines() -> SyntaxSet {
+pub fn build_full_syntaxset_without_newlines() -> SyntaxSet {
     from_binary(include_bytes!("../../../assets/syntaxes-nonl.pack"))
 }
 
-pub fn build_syntaxset_by_names<'a, T>(names: T, lines_include_newline: bool) -> TCResult<SyntaxSet>
+pub fn build_syntaxset_with_names<'a, T>(
+    names: T,
+    lines_include_newline: bool,
+) -> TCResult<SyntaxSet>
 where
     T: IntoIterator<Item = &'a &'a str>,
 {
     // builds from builtin syntaxes defined in the technicolor project
-    build_syntaxset_by_names_from_directory(names, BUILTIN_SYNTAXES_DIR, lines_include_newline)
+    build_syntaxset_with_names_from_directory(names, BUILTIN_SYNTAXES_DIR, lines_include_newline)
 }
 
-pub fn build_syntaxset_by_names_from_directory<'a, T>(
+pub fn build_syntaxset_with_names_from_directory<'a, T>(
     names: T,
     dir: &str,
     lines_include_newline: bool,
@@ -83,7 +86,7 @@ where
     Ok(ssb.build())
 }
 
-// prviate load_syntax_file function from syntect library
+// private load_syntax_file function from syntect library
 // transition to public here
 pub fn load_syntax_file(p: &Path, lines_include_newline: bool) -> TCResult<SyntaxDefinition> {
     let mut f = File::open(p)?;
@@ -98,6 +101,7 @@ pub fn load_syntax_file(p: &Path, lines_include_newline: bool) -> TCResult<Synta
     .map_err(|e| LoadingError::ParseSyntax(e, Some(format!("{}", p.display()))))?)
 }
 
+// TODO: add no newlines unit tests
 #[cfg(test)]
 mod tests {
     use std::collections::HashMap;
@@ -128,7 +132,7 @@ mod tests {
 
     #[test]
     fn test_build_syntaxset_from_directory() {
-        let ss = build_as_syntect_syntaxset_from_directory(BUILTIN_SYNTAXES_DIR, true).unwrap();
+        let ss = build_syntaxset_from_directory(BUILTIN_SYNTAXES_DIR, true).unwrap();
         assert_eq!(
             &ss.find_syntax_by_extension("as").unwrap().name,
             "ActionScript"
@@ -140,7 +144,7 @@ mod tests {
         );
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
         // repeat for newline = false
-        let ss = build_as_syntect_syntaxset_from_directory(BUILTIN_SYNTAXES_DIR, false).unwrap();
+        let ss = build_syntaxset_from_directory(BUILTIN_SYNTAXES_DIR, false).unwrap();
         assert_eq!(
             &ss.find_syntax_by_extension("as").unwrap().name,
             "ActionScript"
@@ -155,16 +159,16 @@ mod tests {
 
     #[test]
     fn test_build_syntaxset_from_directory_fail_bad_dirpath() {
-        let ss = build_as_syntect_syntaxset_from_directory("bogusdir", true);
+        let ss = build_syntaxset_from_directory("bogusdir", true);
         assert!(ss.is_err());
         // repeat for newline = false
-        let ss = build_as_syntect_syntaxset_from_directory("bogusdir", false);
+        let ss = build_syntaxset_from_directory("bogusdir", false);
         assert!(ss.is_err());
     }
 
     #[test]
-    fn test_build_technicolor_syntaxset() {
-        let ss = build_all_as_syntect_syntaxset_with_newlines();
+    fn test_build_full_syntaxset() {
+        let ss = build_full_syntaxset_with_newlines();
         assert_eq!(
             &ss.find_syntax_by_extension("as").unwrap().name,
             "ActionScript"
@@ -176,7 +180,7 @@ mod tests {
         );
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
         // repeat for newline = false
-        let ss = build_all_as_syntect_syntaxset_with_newlines();
+        let ss = build_full_syntaxset_with_newlines();
         assert_eq!(
             &ss.find_syntax_by_extension("as").unwrap().name,
             "ActionScript"
@@ -190,9 +194,9 @@ mod tests {
     }
 
     #[test]
-    fn test_build_syntaxset_by_names_with_vector() {
+    fn test_build_syntaxset_with_names_with_vector() {
         let test_syntax_names = vec![&"INI", &"Swift"];
-        let ss = build_syntaxset_by_names(test_syntax_names, true).unwrap();
+        let ss = build_syntaxset_with_names(test_syntax_names, true).unwrap();
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
         // Plain Text always included by default
@@ -204,7 +208,7 @@ mod tests {
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
         // repeat for newline = false
         let test_syntax_names = vec![&"INI", &"Swift"];
-        let ss = build_syntaxset_by_names(test_syntax_names, false).unwrap();
+        let ss = build_syntaxset_with_names(test_syntax_names, false).unwrap();
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
         // Plain Text always included by default
@@ -217,20 +221,20 @@ mod tests {
     }
 
     #[test]
-    fn test_build_syntaxset_by_names_vector_fail_bad_syntax_name() {
+    fn test_build_syntaxset_with_names_vector_fail_bad_syntax_name() {
         let test_syntax_names = vec![&"Bogus"];
-        let ss = build_syntaxset_by_names(test_syntax_names, true);
+        let ss = build_syntaxset_with_names(test_syntax_names, true);
         assert!(ss.is_err());
         // repeat for newline = false
         let test_syntax_names = vec![&"Bogus"];
-        let ss = build_syntaxset_by_names(test_syntax_names, false);
+        let ss = build_syntaxset_with_names(test_syntax_names, false);
         assert!(ss.is_err());
     }
 
     #[test]
-    fn test_build_syntaxset_by_names_with_array() {
+    fn test_build_syntaxset_with_names_with_array() {
         let test_syntax_names = ["INI", "Swift"];
-        let ss = build_syntaxset_by_names(&test_syntax_names, true).unwrap();
+        let ss = build_syntaxset_with_names(&test_syntax_names, true).unwrap();
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
         // Plain Text always included by default
@@ -241,7 +245,7 @@ mod tests {
         assert!(&ss.find_syntax_by_extension("kt").is_none());
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
         // repeat for newline = false
-        let ss = build_syntaxset_by_names(&test_syntax_names, false).unwrap();
+        let ss = build_syntaxset_with_names(&test_syntax_names, false).unwrap();
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
         // Plain Text always included by default
@@ -254,21 +258,21 @@ mod tests {
     }
 
     #[test]
-    fn test_build_syntaxset_by_names_array_fail_bad_syntax_name() {
+    fn test_build_syntaxset_with_names_array_fail_bad_syntax_name() {
         let test_syntax_names = ["Bogus"];
-        let ss = build_syntaxset_by_names(&test_syntax_names, true);
+        let ss = build_syntaxset_with_names(&test_syntax_names, true);
         assert!(ss.is_err());
         // repeat for newline = false
-        let ss = build_syntaxset_by_names(&test_syntax_names, false);
+        let ss = build_syntaxset_with_names(&test_syntax_names, false);
         assert!(ss.is_err());
     }
 
     #[test]
-    fn test_build_syntaxset_by_names_with_hashmap() {
+    fn test_build_syntaxset_with_names_with_hashmap() {
         let mut test_syntax_names = HashMap::new();
         test_syntax_names.insert("INI", 1);
         test_syntax_names.insert("Swift", 2);
-        let ss = build_syntaxset_by_names(test_syntax_names.keys(), true).unwrap();
+        let ss = build_syntaxset_with_names(test_syntax_names.keys(), true).unwrap();
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
         // Plain Text always included by default
@@ -279,7 +283,7 @@ mod tests {
         assert!(&ss.find_syntax_by_extension("kt").is_none());
         assert!(&ss.find_syntax_by_extension("bogus").is_none());
         // repeat for newline = false
-        let ss = build_syntaxset_by_names(test_syntax_names.keys(), false).unwrap();
+        let ss = build_syntaxset_with_names(test_syntax_names.keys(), false).unwrap();
         assert_eq!(&ss.find_syntax_by_extension("ini").unwrap().name, "INI");
         assert_eq!(&ss.find_syntax_by_extension("swift").unwrap().name, "Swift");
         // Plain Text always included by default
@@ -292,13 +296,13 @@ mod tests {
     }
 
     #[test]
-    fn test_build_syntaxset_by_names_hashmap_fail_bad_syntax_name() {
+    fn test_build_syntaxset_with_names_hashmap_fail_bad_syntax_name() {
         let mut test_syntax_names = HashMap::new();
         test_syntax_names.insert("Bogus", 1);
-        let ss = build_syntaxset_by_names(test_syntax_names.keys(), true);
+        let ss = build_syntaxset_with_names(test_syntax_names.keys(), true);
         assert!(ss.is_err());
         // repeat for newline = false
-        let ss = build_syntaxset_by_names(test_syntax_names.keys(), false);
+        let ss = build_syntaxset_with_names(test_syntax_names.keys(), false);
         assert!(ss.is_err());
     }
 }

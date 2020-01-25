@@ -29,19 +29,19 @@ pub fn build_themeset_from_directory(dir: &str) -> TCResult<ThemeSet> {
     Ok(ts)
 }
 
-pub fn build_technicolor_themeset() -> ThemeSet {
+pub fn build_full_themeset() -> ThemeSet {
     from_binary(include_bytes!("../../../assets/themes.pack"))
 }
 
-pub fn build_themeset_by_names<'a, I>(names: I) -> TCResult<ThemeSet>
+pub fn build_themeset_with_names<'a, I>(names: I) -> TCResult<ThemeSet>
 where
     I: IntoIterator<Item = &'a &'a str>,
 {
     // builds from builtin themes defined in the technicolor project
-    build_themeset_by_names_from_directory(names, BUILTIN_THEMES_DIR)
+    build_themeset_with_names_from_directory(names, BUILTIN_THEMES_DIR)
 }
 
-pub fn build_themeset_by_names_from_directory<'a, I>(names: I, dir: &str) -> TCResult<ThemeSet>
+pub fn build_themeset_with_names_from_directory<'a, I>(names: I, dir: &str) -> TCResult<ThemeSet>
 where
     I: IntoIterator<Item = &'a &'a str>,
 {
@@ -77,17 +77,17 @@ mod tests {
     }
 
     #[test]
-    fn test_build_technicolor_themeset() {
-        let ts = build_technicolor_themeset();
+    fn test_build_full_themeset() {
+        let ts = build_full_themeset();
         let all_themes: Vec<&str> = ts.themes.keys().map(|x| &**x).collect();
         assert!(all_themes.contains(&"Dracula"));
     }
 
     #[test]
-    fn test_build_themeset_from_directory_by_names() {
+    fn test_build_themeset_from_directory_with_names() {
         let test_theme_names = vec![&"Dracula", &"Ayu-Light"];
         let ts =
-            build_themeset_by_names_from_directory(test_theme_names, BUILTIN_THEMES_DIR).unwrap();
+            build_themeset_with_names_from_directory(test_theme_names, BUILTIN_THEMES_DIR).unwrap();
         let all_themes: Vec<&str> = ts.themes.keys().map(|x| &**x).collect();
         assert!(all_themes.contains(&"Dracula")); // expected
         assert!(all_themes.contains(&"Ayu-Light")); // expected
@@ -95,9 +95,9 @@ mod tests {
     }
 
     #[test]
-    fn test_build_themeset_by_names_with_vector() {
+    fn test_build_themeset_with_names_with_vector() {
         let test_theme_names = vec![&"Dracula", &"Ayu-Light"];
-        let ts = build_themeset_by_names(test_theme_names).unwrap();
+        let ts = build_themeset_with_names(test_theme_names).unwrap();
         let all_themes: Vec<&str> = ts.themes.keys().map(|x| &**x).collect();
         assert!(all_themes.contains(&"Dracula")); // expected
         assert!(all_themes.contains(&"Ayu-Light")); // expected
@@ -105,9 +105,9 @@ mod tests {
     }
 
     #[test]
-    fn test_build_themeset_by_names_with_array() {
+    fn test_build_themeset_with_names_with_array() {
         let test_theme_names = ["Dracula", "Ayu-Light"];
-        let ts = build_themeset_by_names(&test_theme_names).unwrap();
+        let ts = build_themeset_with_names(&test_theme_names).unwrap();
         let all_themes: Vec<&str> = ts.themes.keys().map(|x| &**x).collect();
         assert!(all_themes.contains(&"Dracula")); // expected
         assert!(all_themes.contains(&"Ayu-Light")); // expected
@@ -115,11 +115,11 @@ mod tests {
     }
 
     #[test]
-    fn test_build_themeset_by_names_with_hashmap() {
+    fn test_build_themeset_with_names_with_hashmap() {
         let mut test_theme_names = HashMap::new();
         test_theme_names.insert("Dracula", 1);
         test_theme_names.insert("Ayu-Light", 2);
-        let ts = build_themeset_by_names(test_theme_names.keys()).unwrap();
+        let ts = build_themeset_with_names(test_theme_names.keys()).unwrap();
         let all_themes: Vec<&str> = ts.themes.keys().map(|x| &**x).collect();
         assert!(all_themes.contains(&"Dracula")); // expected
         assert!(all_themes.contains(&"Ayu-Light")); // expected
@@ -127,9 +127,9 @@ mod tests {
     }
 
     #[test]
-    fn test_build_themeset_by_names_with_vector_fail_bad_name() {
+    fn test_build_themeset_with_names_with_vector_fail_bad_name() {
         let test_theme_names = vec![&"Bogus"];
-        let ts = build_themeset_by_names(test_theme_names);
+        let ts = build_themeset_with_names(test_theme_names);
         assert!(ts.is_err());
     }
 }

@@ -28,7 +28,7 @@ pub fn dump_themeset_to_binary_by_names<'a, T>(names: T, filepath: &str) -> TCRe
 where
     T: IntoIterator<Item = &'a &'a str>,
 {
-    match theme::build_themeset_by_names(names) {
+    match theme::build_themeset_with_names(names) {
         Ok(n) => {
             dump_themeset_to_binary(&n, filepath)?;
             Ok(())
@@ -53,7 +53,7 @@ mod tests {
     fn test_dump_themeset_to_binary() {
         let tmpdir = tempdir().unwrap();
         let file_path = tmpdir.path().join("themes.bin");
-        let ts = theme::build_technicolor_themeset();
+        let ts = theme::build_full_themeset();
         dump_themeset_to_binary(&ts, file_path.to_str().unwrap()).unwrap();
         let ts_in: ThemeSet = from_dump_file(&file_path).unwrap();
         assert!(file_path.is_file());
