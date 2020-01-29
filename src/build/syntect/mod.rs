@@ -11,5 +11,10 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
+//! The `technicolor::build::syntect` submodules support instantiation of [syntect crate](https://docs.rs/syntect)
+//! `syntect::parsing::SyntaxSet` and `syntect::highlighting::ThemeSet` structs with builtin
+//! syntaxes and themes.
+
 pub mod syntax;
 pub mod theme;
