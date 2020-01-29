@@ -11,6 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+use std::thread;
 
 use syntect::dumps::dump_to_file;
 use syntect::highlighting::ThemeSet;
@@ -76,7 +77,12 @@ fn build_themes_cache() {
 }
 
 fn main() {
-    build_syntaxes_cache_with_newlines();
-    build_syntaxes_cache_without_newlines();
-    build_themes_cache();
+    let mut thread_handles = vec![];
+    thread_handles.push(thread::spawn(|| build_syntaxes_cache_with_newlines()));
+    thread_handles.push(thread::spawn(|| build_syntaxes_cache_without_newlines()));
+    thread_handles.push(thread::spawn(|| build_themes_cache()));
+
+    for handle in thread_handles {
+        handle.join().unwrap();
+    }
 }
