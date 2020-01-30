@@ -27,19 +27,21 @@
 //! Source repository path: [assets/syntaxes](https://github.com/chrissimpkins/technicolor/tree/master/assets/syntaxes)
 //!
 //! ## About
-//! The technicolor library distributes over 130 builtin language syntaxes and over 110 builtin color themes to
+//! The technicolor library distributes over 130 built-in language syntaxes and over 110 built-in color themes to
 //! support syntax highlighting. All [syntaxes](https://github.com/chrissimpkins/technicolor/tree/master/assets/syntaxes)
 //! and [themes](https://github.com/chrissimpkins/technicolor/tree/master/assets/themes) included in this project
 //! are distrbuted under free licenses. See the headers of the definition files in the source repository
 //! for author and license details.
 //!
 //! Technicolor is tightly integrated with the [syntect syntax highlighting crate](https://docs.rs/syntect).
-//! Technicolor library functions permit you to instantiate `syntect::parsing::SyntaxSet` and
-//! `syntect::highlighting::ThemeSet` structs with all, or select subsets of, builtin syntaxes and themes.
-//! Support can be found in the `build::syntect::syntax` and `build::syntect::theme` modules.
+//! Library functions permit you to instantiate `syntect::parsing::SyntaxSet` and
+//! `syntect::highlighting::ThemeSet` structs with all, or subsets of, built-in syntax and theme data.
+//! Support can be found in the `technicolor::build::syntect::syntax` and
+//! `technicolor::build::syntect::theme` modules.
 //!
-//! This library also supports binary caching of all, or select subsets of, the builtin syntaxes
-//! and themes.  Support can be found in the `dump::syntect::syntax` and `dump::syntect::theme` modules.
+//! This library also supports binary caching of all, or subsets of, the built-in syntaxes
+//! and themes.  Support can be found in the `technicolor::dump::syntect::syntax` and
+//! `techicolor::dump::syntect::theme` modules.
 //!
 //! ## License
 //!
