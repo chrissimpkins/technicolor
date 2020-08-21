@@ -18,7 +18,7 @@ exclude = [
 #[dependencies]
 
 [dependencies.syntect]
-version = "3.3.0"
+version = "4.4.0"
 default-features = false
 features = ["parsing", "yaml-load", "dump-load", "dump-create"]
 
