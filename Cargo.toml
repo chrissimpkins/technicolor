@@ -15,7 +15,8 @@ exclude = [
     "/.travis.yml"
 ]
 
-#[dependencies]
+[dependencies]
+serde_json = "1.0"
 
 [dependencies.syntect]
 version = "3.3.0"
